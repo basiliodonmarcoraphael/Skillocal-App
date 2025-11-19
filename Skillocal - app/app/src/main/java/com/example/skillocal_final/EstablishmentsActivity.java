@@ -1,10 +1,15 @@
 package com.example.skillocal_final;
 
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -26,11 +32,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EstablishmentsActivity extends AppCompatActivity {
 
     private LinearLayout layoutEstablishments;
-    private ArrayList<JSONObject> establishments;
+    private List<Establishment> establishments;
     private SharedPreferences sharedPreferences;
     private String currentUserEmail;
 
@@ -62,24 +73,31 @@ public class EstablishmentsActivity extends AppCompatActivity {
     }
 
     private void loadEstablishments() {
-        layoutEstablishments.removeAllViews();
-        establishments.clear();
+        //New
+        ApiService api = ApiInstance.getApi();
 
-        String jsonString = sharedPreferences.getString(KEY_ESTABLISHMENTS, "{}");
+        api.getAllEstablishment("*").enqueue(new Callback<List<Establishment>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Establishment>> call, @NonNull Response<List<Establishment>> response) {
+                if (response.isSuccessful()) {
+                    List<Establishment> resList = response.body();
+                    layoutEstablishments.removeAllViews();
+                    establishments.clear();
 
-        try {
-            JSONObject json = new JSONObject(jsonString);
-            if (json.has(currentUserEmail)) {
-                JSONArray arr = json.getJSONArray(currentUserEmail);
-                for (int i = 0; i < arr.length(); i++) {
-                    JSONObject estObj = arr.getJSONObject(i);
-                    establishments.add(estObj);
-                    addEstablishmentToLayout(estObj);
+                    assert resList != null;
+                    for (Establishment e : resList) {
+                        Log.d("API", "User: " + e.getAddress());
+                        establishments.add(e);
+                        addEstablishmentToLayout(e);
+                    }
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Establishment>> call, @NonNull Throwable t) {
+                Log.e("API", "Failed: " + t.getMessage());
+            }
+        });
     }
 
     private void saveEstablishments() {
@@ -146,8 +164,8 @@ public class EstablishmentsActivity extends AppCompatActivity {
                 estObj.put("status", status);
                 estObj.put("regDate", regDate);
 
-                establishments.add(estObj);
-                addEstablishmentToLayout(estObj);
+//                establishments.add(estObj);
+//                addEstablishmentToLayout(estObj);
                 saveEstablishments();
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -158,23 +176,16 @@ public class EstablishmentsActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void addEstablishmentToLayout(JSONObject estObj) {
+    private void addEstablishmentToLayout(Establishment estObj) {
         View itemView = LayoutInflater.from(this).inflate(R.layout.item_establishment, layoutEstablishments, false);
 
         TextView tvName = itemView.findViewById(R.id.tv_est_name);
         ImageView btnEdit = itemView.findViewById(R.id.btn_edit_est);
         ImageView btnDelete = itemView.findViewById(R.id.btn_delete_est);
 
-        try {
-            String name = estObj.getString("name");
-            String totalEmployees = estObj.getString("totalEmployees");
-            String status = estObj.getString("status");
-            String regDate = estObj.getString("regDate");
+        String name = estObj.getEstablishmentName();
 
-            tvName.setText(name + " (" + totalEmployees + " employees) - " + status + " - " + regDate);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        tvName.setText(name);
 
         btnEdit.setOnClickListener(v -> showEditEstablishmentDialog(estObj, tvName));
         btnDelete.setOnClickListener(v -> {
@@ -186,7 +197,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
         layoutEstablishments.addView(itemView);
     }
 
-    private void showEditEstablishmentDialog(JSONObject estObj, TextView tvName) {
+    private void showEditEstablishmentDialog(Establishment estObj, TextView tvName) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Establishment");
 
@@ -204,15 +215,9 @@ public class EstablishmentsActivity extends AppCompatActivity {
         spinnerStatus.setAdapter(statusAdapter);
 
         // Fill current values
-        try {
-            etName.setText(estObj.getString("name"));
-            etTotalEmployees.setText(estObj.getString("totalEmployees"));
-            etRegDate.setText(estObj.getString("regDate"));
-            String status = estObj.getString("status");
-            spinnerStatus.setSelection(status.equalsIgnoreCase("Active") ? 0 : 1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        etName.setText(estObj.getEstablishmentName());
+        String status = estObj.getStatus();
+        spinnerStatus.setSelection(status.equalsIgnoreCase("Active") ? 0 : 1);
 
         // Registration date picker
         etRegDate.setOnClickListener(v -> {
@@ -234,7 +239,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
         builder.setPositiveButton("Save", (dialog, which) -> {
             String name = etName.getText().toString().trim();
             String totalEmp = etTotalEmployees.getText().toString().trim();
-            String status = spinnerStatus.getSelectedItem().toString();
+//            String status = spinnerStatus.getSelectedItem().toString();
             String regDate = etRegDate.getText().toString().trim();
 
             if (name.isEmpty() || totalEmp.isEmpty() || regDate.isEmpty()) {
@@ -242,17 +247,17 @@ public class EstablishmentsActivity extends AppCompatActivity {
                 return;
             }
 
-            try {
-                estObj.put("name", name);
-                estObj.put("totalEmployees", totalEmp);
-                estObj.put("status", status);
-                estObj.put("regDate", regDate);
-
-                tvName.setText(name + " (" + totalEmp + " employees) - " + status + " - " + regDate);
-                saveEstablishments();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                estObj.put("name", name);
+//                estObj.put("totalEmployees", totalEmp);
+//                estObj.put("status", status);
+//                estObj.put("regDate", regDate);
+//
+//                tvName.setText(name + " (" + totalEmp + " employees) - " + status + " - " + regDate);
+//                saveEstablishments();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());

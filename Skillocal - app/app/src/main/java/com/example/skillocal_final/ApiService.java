@@ -11,4 +11,9 @@ public interface ApiService {
             @Query("password") String passwordFilter, // example: "eq.1234"
             @Query("select") String select            // usually: "*"
     );
+
+    @GET("Establishment")
+    Call<List<Establishment>> getAllEstablishment(
+            @Query("select") String select
+    );
 }
