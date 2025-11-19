@@ -39,7 +39,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = userList.get(position);
-        holder.tvName.setText(user.getName());
+        holder.tvName.setText(user.getFName());
         holder.tvRole.setText(user.getRole());
 
         holder.btnEdit.setOnClickListener(v -> listener.onEdit(position));
