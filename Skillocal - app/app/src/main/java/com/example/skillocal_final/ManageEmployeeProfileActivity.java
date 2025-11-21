@@ -35,6 +35,7 @@ public class ManageEmployeeProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manage_employee_profile);
 
         // Initialize fields
+
         etFullName = findViewById(R.id.etFullName);
         etBirthDate = findViewById(R.id.etBirthDate);
         etBirthPlace = findViewById(R.id.etBirthPlace);
