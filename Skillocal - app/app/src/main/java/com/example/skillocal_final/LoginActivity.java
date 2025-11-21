@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         prgLogin = findViewById(R.id.progressBar);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvCreateAccount = findViewById(R.id.tvCreateAccount);
-        etEmail.setText("test@mail.com");
+        etEmail.setText("joshuagarcia@gmail.com");
         etPassword.setText("1234");
 
         btnLogin.setOnClickListener(v -> {

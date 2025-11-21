@@ -27,13 +27,20 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name=".CreateAccountActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".EstablishmentsActivity" android:exported="false" />
+        <activity android:name=".AddEligibilityActivity" android:exported="false" />
+        <activity android:name=".AddTrainingActivity" android:exported="false" />
+        <activity android:name=".AddWorkExperienceActivity" android:exported="false" />
+        <activity android:name=".CareerPortfolioActivity" android:exported="false" />
+        <activity android:name=".JobApplicationActivity" android:exported="false" />
+        <activity android:name=".ManageEmployerProfileActivity" android:exported="false" />
         <activity android:name=".ManageEmployeeProfileActivity" android:exported="false" />
         <activity android:name=".JobVacancyActivity" android:exported="false" />
-        <activity android:name=".JobMatchingActivity" android:exported="false" />
+        <activity android:name=".JobMatchingEmployeeActivity" android:exported="false" />
+        <activity android:name=".JobMatchingEmployerActivity" android:exported="false" />
         <activity android:name=".ForgotPasswordActivity" android:exported="false" />
-
     </application>
 </manifest>
