@@ -2,7 +2,7 @@ package com.example.skillocal_final;
 
 public class User {
 
-    private final int user_id;
+    private final Integer user_id;
     private final String email;
     private final String firstName;
     private final String middleName;
@@ -14,7 +14,7 @@ public class User {
     private final String password;
     private final String modifiedAt;
 
-    public User(int user_id, String email, String firstName,
+    public User(Integer user_id, String email, String firstName,
                 String middleName, String lastName, String suffix, String role,String status,
                 String created_at, String password, String modifiedAt)
     {
@@ -31,7 +31,7 @@ public class User {
         this.modifiedAt = modifiedAt;
     }
 
-    public int getUserId(){return user_id;}
+    public Integer getUserId(){return user_id;}
     public String getEmail(){return email;}
     public String getFName(){ return firstName;}
     public String getMName(){return middleName;}

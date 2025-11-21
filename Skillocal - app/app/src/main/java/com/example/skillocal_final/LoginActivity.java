@@ -3,8 +3,10 @@ package com.example.skillocal_final;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -39,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         api.loginUser(inputEmail, pass, "*").enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
+                SharedPreferences prefs = getSharedPreferences("MyRole", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
                 if (response.isSuccessful()) {
                     List<User> users = response.body();
                     if (users != null) {
@@ -47,6 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("API", "User: " + u.getFName());
                         }
                         if (!users.isEmpty()) {
+                            final User userMe = users.get(0);
+                            editor.putInt("userId", userMe.getUserId());
+                            editor.putString("fName", userMe.getFName());
+                            editor.putString("mName", userMe.getMName());
+                            editor.putString("lName", userMe.getLName());
+                            editor.putString("role", userMe.getRole());
+                            editor.apply();
                             String savedEmail = getSharedPreferences("UserAccount", MODE_PRIVATE).getString("email", "");
                             String savedPassword = getSharedPreferences("UserAccount", MODE_PRIVATE).getString("password", "");
                             Toast.makeText(cont, "Login successful", Toast.LENGTH_SHORT).show();
@@ -80,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +103,8 @@ public class LoginActivity extends AppCompatActivity {
         prgLogin = findViewById(R.id.progressBar);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvCreateAccount = findViewById(R.id.tvCreateAccount);
+        etEmail.setText("test@mail.com");
+        etPassword.setText("1234");
 
         btnLogin.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();

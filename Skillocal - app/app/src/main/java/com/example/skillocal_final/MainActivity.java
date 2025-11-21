@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String role = getSharedPreferences("MyRole", MODE_PRIVATE)
+                .getString("role", "Worker"); // default employee
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -51,6 +54,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Open drawer when menu icon clicked
         iconMenu.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
+
+        Menu menu = navigationView.getMenu();
+        MenuItem estItem = menu.findItem(R.id.nav_establishments);
+        MenuItem empProf = menu.findItem(R.id.nav_employee_profile);
+        MenuItem jobVacant = menu.findItem(R.id.nav_job_vacancy);
+        MenuItem jVacMatch = menu.findItem(R.id.nav_job_matching_employee);
+        MenuItem carPortfolio = menu.findItem(R.id.nav_career_portfolio);
+        MenuItem manageEmpProf = menu.findItem(R.id.nav_manage_employee_profile);
+        MenuItem jApplication = menu.findItem(R.id.nav_job_application);
+        MenuItem jMatch = menu.findItem(R.id.nav_job_matching);
+
+        //Item to Hide based on role
+        if(role.equals("Employer")){
+            carPortfolio.setVisible(false);
+            manageEmpProf.setVisible(false);
+            jApplication.setVisible(false);
+            jVacMatch.setVisible(false);
+        }else{
+            jMatch.setVisible(false);
+            estItem.setVisible(false);
+            empProf.setVisible(false);
+            jobVacant.setVisible(false);
+        }
 
         // Kebab menu logout
         iconKebab.setOnClickListener(v -> {
