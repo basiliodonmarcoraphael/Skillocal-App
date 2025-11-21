@@ -21,5 +21,6 @@
     <string name="master_data">Master Data</string>
     <string name="logout">Logout</string>
     <string name="first_name">First Name</string>
+    <string name="add_eligibility">Add Eligibility</string>
 
 </resources>

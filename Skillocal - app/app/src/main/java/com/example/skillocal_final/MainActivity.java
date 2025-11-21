@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -126,11 +124,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_establishments) {
             startActivity(new Intent(this, EstablishmentsActivity.class));
         } else if (id == R.id.nav_employee_profile) {
-            startActivity(new Intent(this, ManageEmployeeProfileActivity.class));
+            startActivity(new Intent(this, ManageEmployerProfileActivity.class));
         } else if (id == R.id.nav_job_vacancy) {
             startActivity(new Intent(this, JobVacancyActivity.class));
         } else if (id == R.id.nav_job_matching) {
-            startActivity(new Intent(this, JobMatchingActivity.class));
+            startActivity(new Intent(this, JobMatchingEmployerActivity.class));
+        } else if (id == R.id.nav_career_portfolio) {
+            startActivity(new Intent(this, CareerPortfolioActivity.class));
+        } else if (id == R.id.nav_manage_employee_profile) {
+            startActivity(new Intent(this, ManageEmployeeProfileActivity.class));
+        } else if (id == R.id.nav_job_application) {
+            startActivity(new Intent(this, JobApplicationActivity.class));
+        } else if (id == R.id.nav_job_matching_employee) {
+            startActivity(new Intent(this, JobMatchingEmployeeActivity.class));
         }
 
         drawerLayout.closeDrawers();

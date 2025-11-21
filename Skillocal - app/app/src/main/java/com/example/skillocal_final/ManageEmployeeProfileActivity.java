@@ -4,11 +4,9 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,51 +19,40 @@ import java.util.Calendar;
 
 public class ManageEmployeeProfileActivity extends AppCompatActivity {
 
-    private EditText etFirstName, etMiddleInitial, etSurname, etAddress, etPhone, etBirthday, etEmail;
-    private Spinner spinnerGender;
-    private Button btnSave;
+    private EditText etFullName, etBirthDate, etBirthPlace, etSex, etCivilStatus, etHeight, etWeight, etEmail;
+    private Button btnSubmit;
     private ImageView iconBack;
 
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "EmployeeProfilePrefs";
     private static final String KEY_EMPLOYEES = "employees";
 
-    private JSONObject currentEmployee; // holds the last created employee
+    private JSONObject currentEmployee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_employer_profile);
+        setContentView(R.layout.activity_manage_employee_profile);
 
         // Initialize fields
-        etFirstName = findViewById(R.id.etFirstName);
-        etMiddleInitial = findViewById(R.id.etMiddleInitial);
-        etSurname = findViewById(R.id.etSurname);
-        etAddress = findViewById(R.id.etAddress);
-        etPhone = findViewById(R.id.etPhone);
-        etBirthday = findViewById(R.id.etBirthday);
+        etFullName = findViewById(R.id.etFullName);
+        etBirthDate = findViewById(R.id.etBirthDate);
+        etBirthPlace = findViewById(R.id.etBirthPlace);
+        etSex = findViewById(R.id.etSex);
+        etCivilStatus = findViewById(R.id.etCivilStatus);
+        etHeight = findViewById(R.id.etHeight);
+        etWeight = findViewById(R.id.etWeight);
         etEmail = findViewById(R.id.etEmail);
-        spinnerGender = findViewById(R.id.spinnerGender);
-        btnSave = findViewById(R.id.btnSave);
-        iconBack = findViewById(R.id.icon_back_manage);
+        btnSubmit = findViewById(R.id.btnSubmit);
+        iconBack = findViewById(R.id.icon_back_employee);
 
         sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-        // Back button functionality
+        // Back button
         iconBack.setOnClickListener(v -> finish());
 
-        // Set up gender spinner
-        String[] genders = {"Select Gender", "Male", "Female", "Other"};
-        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, genders);
-        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerGender.setAdapter(genderAdapter);
-
-        // Load the last created employee
-        loadLastEmployee();
-
         // Birthday picker
-        etBirthday.setOnClickListener(v -> {
+        etBirthDate.setOnClickListener(v -> {
             final Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
             int month = calendar.get(Calendar.MONTH);
@@ -74,13 +61,16 @@ public class ManageEmployeeProfileActivity extends AppCompatActivity {
             DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                     (view, selectedYear, selectedMonth, selectedDay) -> {
                         String date = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
-                        etBirthday.setText(date);
+                        etBirthDate.setText(date);
                     }, year, month, day);
             datePickerDialog.show();
         });
 
-        // Save changes button
-        btnSave.setOnClickListener(v -> saveEmployeeChanges());
+        // Load last employee data
+        loadLastEmployee();
+
+        // Submit button
+        btnSubmit.setOnClickListener(v -> saveEmployee());
     }
 
     private void loadLastEmployee() {
@@ -88,50 +78,46 @@ public class ManageEmployeeProfileActivity extends AppCompatActivity {
         try {
             JSONArray arr = new JSONArray(jsonString);
             if (arr.length() > 0) {
-                currentEmployee = arr.getJSONObject(arr.length() - 1); // get last created employee
+                currentEmployee = arr.getJSONObject(arr.length() - 1);
 
-                etFirstName.setText(currentEmployee.getString("firstName"));
-                etMiddleInitial.setText(currentEmployee.getString("middleInitial"));
-                etSurname.setText(currentEmployee.getString("surname"));
-                etAddress.setText(currentEmployee.getString("address"));
-                etPhone.setText(currentEmployee.getString("phone"));
-                etBirthday.setText(currentEmployee.getString("birthday"));
-                etEmail.setText(currentEmployee.getString("email"));
-
-                // Set spinner selection
-                String gender = currentEmployee.getString("gender");
-                for (int i = 0; i < spinnerGender.getCount(); i++) {
-                    if (spinnerGender.getItemAtPosition(i).toString().equalsIgnoreCase(gender)) {
-                        spinnerGender.setSelection(i);
-                        break;
-                    }
-                }
+                etFullName.setText(currentEmployee.optString("fullName"));
+                etBirthDate.setText(currentEmployee.optString("birthDate"));
+                etBirthPlace.setText(currentEmployee.optString("birthPlace"));
+                etSex.setText(currentEmployee.optString("sex"));
+                etCivilStatus.setText(currentEmployee.optString("civilStatus"));
+                etHeight.setText(currentEmployee.optString("height"));
+                etWeight.setText(currentEmployee.optString("weight"));
+                etEmail.setText(currentEmployee.optString("email"));
+            } else {
+                currentEmployee = new JSONObject();
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private void saveEmployeeChanges() {
-        if (currentEmployee == null) return;
-
+    private void saveEmployee() {
         try {
-            currentEmployee.put("firstName", etFirstName.getText().toString());
-            currentEmployee.put("middleInitial", etMiddleInitial.getText().toString());
-            currentEmployee.put("surname", etSurname.getText().toString());
-            currentEmployee.put("address", etAddress.getText().toString());
-            currentEmployee.put("phone", etPhone.getText().toString());
-            currentEmployee.put("birthday", etBirthday.getText().toString());
+            currentEmployee.put("fullName", etFullName.getText().toString());
+            currentEmployee.put("birthDate", etBirthDate.getText().toString());
+            currentEmployee.put("birthPlace", etBirthPlace.getText().toString());
+            currentEmployee.put("sex", etSex.getText().toString());
+            currentEmployee.put("civilStatus", etCivilStatus.getText().toString());
+            currentEmployee.put("height", etHeight.getText().toString());
+            currentEmployee.put("weight", etWeight.getText().toString());
             currentEmployee.put("email", etEmail.getText().toString());
-            currentEmployee.put("gender", spinnerGender.getSelectedItem().toString());
 
-            // Save back to SharedPreferences (overwrite last employee)
             String jsonString = sharedPreferences.getString(KEY_EMPLOYEES, "[]");
             JSONArray arr = new JSONArray(jsonString);
-            arr.put(arr.length() - 1, currentEmployee);
-            sharedPreferences.edit().putString(KEY_EMPLOYEES, arr.toString()).apply();
 
-            Toast.makeText(this, "Employee updated!", Toast.LENGTH_SHORT).show();
+            if (arr.length() > 0) {
+                arr.put(arr.length() - 1, currentEmployee);
+            } else {
+                arr.put(currentEmployee);
+            }
+
+            sharedPreferences.edit().putString(KEY_EMPLOYEES, arr.toString()).apply();
+            Toast.makeText(this, "Employee profile saved!", Toast.LENGTH_SHORT).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }

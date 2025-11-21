@@ -21,6 +21,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
@@ -30,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void fetchLogin(String inputEmail, String pass, Context cont) {
         ApiService api = ApiInstance.getApi();
-
         api.loginUser(inputEmail, pass, "*").enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
@@ -38,11 +43,10 @@ public class LoginActivity extends AppCompatActivity {
                     List<User> users = response.body();
                     if (users != null) {
                         Log.d("API", "Users fetched: " + users.size());
-
                         for (User u : users) {
                             Log.d("API", "User: " + u.getFName());
                         }
-                        if(!users.isEmpty()){
+                        if (!users.isEmpty()) {
                             String savedEmail = getSharedPreferences("UserAccount", MODE_PRIVATE).getString("email", "");
                             String savedPassword = getSharedPreferences("UserAccount", MODE_PRIVATE).getString("password", "");
                             Toast.makeText(cont, "Login successful", Toast.LENGTH_SHORT).show();
@@ -51,12 +55,12 @@ public class LoginActivity extends AppCompatActivity {
                             btnLogin.setVisibility(VISIBLE);
                             prgLogin.setVisibility(INVISIBLE);
                             finish();
-                        }else{
+                        } else {
                             Toast.makeText(cont, "Invalid email or password", Toast.LENGTH_SHORT).show();
                             btnLogin.setVisibility(VISIBLE);
                             prgLogin.setVisibility(INVISIBLE);
                         }
-                    }else{
+                    } else {
                         Toast.makeText(cont, "Invalid email or password", Toast.LENGTH_SHORT).show();
                         btnLogin.setVisibility(VISIBLE);
                         prgLogin.setVisibility(INVISIBLE);
@@ -75,8 +79,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,9 +100,11 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show();
                 return;
             }
+
             btnLogin.setVisibility(INVISIBLE);
             prgLogin.setVisibility(VISIBLE);
-            fetchLogin("eq."+email, "eq."+password, this);
+
+            fetchLogin("eq." + email, "eq." + password, this);
         });
 
         tvForgotPassword.setOnClickListener(v -> {

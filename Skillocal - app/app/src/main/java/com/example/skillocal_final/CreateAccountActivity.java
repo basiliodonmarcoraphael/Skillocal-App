@@ -127,8 +127,8 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Employee account created!", Toast.LENGTH_SHORT).show();
 
-            // Open ManageEmployeeProfileActivity
-            startActivity(new Intent(CreateAccountActivity.this, ManageEmployeeProfileActivity.class));
+            // Open ManageEmployerProfileActivity
+            startActivity(new Intent(CreateAccountActivity.this, ManageEmployerProfileActivity.class));
             finish();
         });
 
