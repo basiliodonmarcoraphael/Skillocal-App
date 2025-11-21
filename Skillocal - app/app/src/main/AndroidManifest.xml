@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,28 +27,13 @@
             </intent-filter>
         </activity>
 
-        <!-- General Activities -->
         <activity android:name=".CreateAccountActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".ForgotPasswordActivity" android:exported="false" />
-
-        <!-- Employer Activities -->
         <activity android:name=".EstablishmentsActivity" android:exported="false" />
-        <activity android:name=".ManageEmployerProfileActivity" android:exported="false" />
-        <activity android:name=".JobVacancyActivity" android:exported="false" />
-        <activity android:name=".JobMatchingEmployerActivity" android:exported="false" />
-
-        <!-- Employee Activities -->
-        <activity android:name=".CareerPortfolioActivity" android:exported="false" />
         <activity android:name=".ManageEmployeeProfileActivity" android:exported="false" />
-        <activity android:name=".JobApplicationActivity" android:exported="false" />
-        <activity android:name=".JobMatchingEmployeeActivity" android:exported="false" />
-
-        <!-- Add Activities for Career Portfolio -->
-        <activity android:name=".AddWorkExperienceActivity" android:exported="false" />
-        <activity android:name=".AddEligibilityActivity" android:exported="false" />
-        <activity android:name=".AddTrainingActivity" android:exported="false" />
-
+        <activity android:name=".JobVacancyActivity" android:exported="false" />
+        <activity android:name=".JobMatchingActivity" android:exported="false" />
+        <activity android:name=".ForgotPasswordActivity" android:exported="false" />
 
     </application>
 </manifest>

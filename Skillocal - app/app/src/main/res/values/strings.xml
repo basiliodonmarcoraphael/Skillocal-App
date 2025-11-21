@@ -22,5 +22,8 @@
     <string name="logout">Logout</string>
     <string name="first_name">First Name</string>
     <string name="add_eligibility">Add Eligibility</string>
+    <string name="contact_person">Contact Person</string>
+    <string name="e_g_abc_caf">e.g. ABC Café</string>
+    <string name="contact_number">Contact Number</string>
 
 </resources>
