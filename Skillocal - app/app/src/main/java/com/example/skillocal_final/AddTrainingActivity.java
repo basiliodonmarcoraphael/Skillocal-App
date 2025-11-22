@@ -32,7 +32,7 @@ public class AddTrainingActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btn_save);
         btnBack = findViewById(R.id.btn_back);
 
-        btnBack.setOnClickListener(v -> onBackPressed());
+        btnBack.setOnClickListener(v -> finish());
         btnSave.setOnClickListener(v -> saveData());
     }
 

@@ -14,6 +14,8 @@ import org.json.JSONObject;
 
 public class AddEligibilityActivity extends AppCompatActivity {
 
+    ApiServiceWorker api = ApiInstance.getApiWorker();
+    private int currentId;
     private EditText etName, etLicense, etDateTaken, etValidity;
     private ImageView btnBack;
     private Button btnSave;
@@ -23,6 +25,8 @@ public class AddEligibilityActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        currentId = getSharedPreferences("MyRole", MODE_PRIVATE)
+                .getInt("userId", 0 );
         setContentView(R.layout.activity_add_eligibility);
 
         etName = findViewById(R.id.et_name);
@@ -32,7 +36,7 @@ public class AddEligibilityActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btn_save);
         btnBack = findViewById(R.id.btn_back);
 
-        btnBack.setOnClickListener(v -> onBackPressed());
+        btnBack.setOnClickListener(v -> finish());
         btnSave.setOnClickListener(v -> saveData());
     }
 
