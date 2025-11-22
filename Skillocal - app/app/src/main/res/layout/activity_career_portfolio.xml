@@ -93,9 +93,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/primary"
                     android:textColor="@color/white"/>
+
+                <!-- list of work experience-->
+                <LinearLayout
+                    android:id="@+id/layout_workExperience"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp" />
+
             </LinearLayout>
+
+
 
             <!-- Eligibility Card -->
             <LinearLayout
@@ -122,9 +134,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/primary"
                     android:textColor="@color/white"/>
+
+                <!-- list of eligibility -->
+                <LinearLayout
+                    android:id="@+id/layout_eligibility"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp" />
+
             </LinearLayout>
+
 
             <!-- Training Card -->
             <LinearLayout
@@ -151,9 +174,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/primary"
                     android:textColor="@color/white"/>
+
+                <!-- list of training -->
+                <LinearLayout
+                    android:id="@+id/layout_training"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp" />
             </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

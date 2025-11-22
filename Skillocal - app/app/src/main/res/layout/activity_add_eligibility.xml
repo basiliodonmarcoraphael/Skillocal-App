@@ -66,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"/>
 
+
         <EditText
             android:id="@+id/et_validity"
             android:hint="Validity Date"
