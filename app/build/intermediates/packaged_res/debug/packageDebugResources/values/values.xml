@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#EB4335</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray">#666666</color>
+    <color name="gray">#A9A9A9</color>
+    <color name="highlight">#FFD372</color>
+    <color name="light_gray">#D9D9D9</color>
+    <color name="panel_gray">#F5F5F5</color>
+    <color name="primary">#4A47FF</color>
+    <color name="red">#EB4335</color>
+    <color name="white">#FFFFFF</color>
+    <string name="add_eligibility">Add Eligibility</string>
+    <string name="add_user">Add User</string>
+    <string name="address">Address</string>
+    <string name="app_name">SkillLocal</string>
+    <string name="close">Close</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="contact_person">Contact Person</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="e_g_abc_caf">e.g. ABC Café</string>
+    <string name="email">Email</string>
+    <string name="establishments">Establishments</string>
+    <string name="first_name">First Name</string>
+    <string name="home">Home</string>
+    <string name="logout">Logout</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="master_data">Master Data</string>
+    <string name="menu">Menu</string>
+    <string name="name">Name</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="open">Open</string>
+    <string name="profile">Profile</string>
+    <string name="reports">Reports</string>
+    <string name="search">Search</string>
+    <string name="search_users">Search Users</string>
+    <string name="settings">Settings</string>
+    <style name="Base.Theme.SKILLocalfinal" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+    <style name="Theme.SKILLocalfinal" parent="Base.Theme.SKILLocalfinal"/>
+</resources>

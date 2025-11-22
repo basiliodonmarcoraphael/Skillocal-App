@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/panel_gray">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_job_seeker"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="8dp">
+
+            <ImageView
+                android:id="@+id/icon_back_job_seeker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back Button"
+                app:tint="@color/white"/>
+
+            <TextView
+                android:id="@+id/toolbar_title_job_seeker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Job Application"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Scrollable form -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="20dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_job_seeker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Header -->
+            <TextView
+                android:text="Job Seeker Information"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+            <!-- FULL NAME -->
+            <EditText
+                android:id="@+id/et_full_name"
+                android:hint="Full Name"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- BIRTH DATE -->
+            <EditText
+                android:id="@+id/et_birth_date"
+                android:hint="Birth Date (MM/DD/YYYY)"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- BIRTH PLACE -->
+            <EditText
+                android:id="@+id/et_birth_place"
+                android:hint="Birth Place"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- SEX -->
+            <Spinner
+                android:id="@+id/et_sex"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- CIVIL STATUS -->
+            <Spinner
+                android:id="@+id/et_civil_status"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- HEIGHT -->
+            <EditText
+                android:id="@+id/et_height"
+                android:hint="Height"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_metrics"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- WEIGHT -->
+            <EditText
+                android:id="@+id/et_weight"
+                android:hint="Weight"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_metrics"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- GRADUATE INSTITUTION -->
+            <EditText
+                android:id="@+id/et_graduate_institution"
+                android:hint="Graduate Institution"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- GRADUATE COURSE -->
+            <EditText
+                android:id="@+id/et_graduate_course"
+                android:hint="Graduate Course"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- TERTIARY -->
+            <EditText
+                android:id="@+id/et_tertiary_institution"
+                android:hint="Tertiary Institution"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- SECONDARY -->
+            <EditText
+                android:id="@+id/et_secondary_institution"
+                android:hint="Secondary Institution"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- PRIMARY -->
+            <EditText
+                android:id="@+id/et_primary_institution"
+                android:hint="Primary Institution"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="10dp"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- SUBMIT BUTTON -->
+            <Button
+                android:id="@+id/btn_submit"
+                android:text="Submit"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/primary"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
