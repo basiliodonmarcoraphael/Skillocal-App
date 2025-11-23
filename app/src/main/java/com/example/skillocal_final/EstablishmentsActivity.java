@@ -153,7 +153,11 @@ public class EstablishmentsActivity extends AppCompatActivity {
         layoutEstablishments.removeAllViews();
         establishments.clear();
 
-        api.getAllEstablishment("*").enqueue(new Callback<List<Establishment>>() {
+        api.getEstablishmentByUserId(
+                "*",                     // select all columns
+                "eq." + currentId,           // Supabase filter
+                "establishment_id.asc"     // order by
+        ).enqueue(new Callback<List<Establishment>>() {
             @Override
             public void onResponse(@NonNull Call<List<Establishment>> call, @NonNull Response<List<Establishment>> response) {
                 if (response.isSuccessful()) {
