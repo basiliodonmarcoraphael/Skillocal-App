@@ -4,6 +4,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
@@ -24,7 +25,7 @@ public interface ApiServiceWorker {
     );
 
     @POST("WorkExperience")
-    Call<List<WorkExperience>> insertWorkExperience(
+    Call<Void> insertWorkExperience(
             @Query("select") String select,
             @Body WorkExperience workExperience
     );
@@ -32,13 +33,18 @@ public interface ApiServiceWorker {
     // UPDATE WorkExperience - Use PATCH for partial updates
     @PATCH("WorkExperience")
     Call<WorkExperience> updateWorkExperience(
-            @Query("user_id") String eqFilter,  // example: "eq.123"
+            @Query("work_experience_id") String eqFilter,  // example: "eq.123"
             @Body WorkExperience workExperience
+    );
+    //Delete WorkExperience
+    @DELETE("WorkExperience")
+    Call<Void> deleteWorkExperience(
+            @Query("work_experience_id") String workExperienceIdEq  // e.g. "eq.45"
     );
 
 
 
-    /// ////////////
+
 
     //This is for Eligibility Table
     @GET("Eligibility")
@@ -53,7 +59,7 @@ public interface ApiServiceWorker {
     );
 
     @POST("Eligibility")
-    Call<List<Eligibility>> insertEligibility(
+    Call<Void> insertEligibility(
             @Query("select") String select,
             @Body Eligibility eligibility
     );
@@ -61,7 +67,45 @@ public interface ApiServiceWorker {
     // UPDATE Eligibility - Use PATCH for partial updates
     @PATCH("Eligibility")
     Call<Eligibility> updateEligibility(
-            @Query("user_id") String eqFilter,  // example: "eq.123"
+            @Query("eligibility_id") String eqFilter,  // example: "eq.123"
             @Body Eligibility eligibility
+    );
+    //Delete Eligibility
+    @DELETE("Eligibility")
+    Call<Void> deleteEligibility(
+            @Query("eligibility_id") String eligibilityIdEq  // e.g. "eq.45"
+    );
+
+
+
+    //This is for Trainings Table
+    @GET("Trainings")
+    Call<List<Training>> getAllTraining(
+            @Query("select") String select
+    );
+
+    @GET("Trainings")
+    Call<List<Training>> getTrainingByUserId(
+            @Query("select") String select,
+            @Query("user_id") String userIdFilter
+    );
+
+
+    @POST("Trainings")
+    Call<Void> insertTraining(
+            @Query("select") String select,
+            @Body Training training
+    );
+
+    // UPDATE Training - Use PATCH for partial updates
+    @PATCH("Trainings")
+    Call<Training> updateTraining(
+            @Query("training_id") String eqFilter,  // example: "eq.123"
+            @Body Training training
+    );
+    //Delete Training
+    @DELETE("Trainings")
+    Call<Void> deleteTraining(
+            @Query("training_id") String trainingIdEq  // e.g. "eq.45"
     );
 }
