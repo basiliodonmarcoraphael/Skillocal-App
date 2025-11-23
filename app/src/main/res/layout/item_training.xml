@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Company Name"
+        android:text="Training Name"
         android:textSize="16sp"
         android:textColor="@color/black"
         android:textStyle="bold" />

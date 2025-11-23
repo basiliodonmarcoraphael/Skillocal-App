@@ -85,27 +85,24 @@ public class AddWorkExperienceActivity extends AppCompatActivity {
 
     private void insertWorkExperience(WorkExperience workExperience){
 
-        api.insertWorkExperience("*", workExperience).enqueue(new Callback<List<WorkExperience>>() {
+        api.insertWorkExperience("*", workExperience).enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<List<WorkExperience>> call, Response<List<WorkExperience>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<WorkExperience> inserted = response.body();
-                    WorkExperience newRow = inserted.get(0);
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
 
-                    Log.d("API", "Inserted Work Experience ID: " + newRow.getWorkExperienceId());
-                    Log.d("API", "Company: " + newRow.getCompany());
+                    Log.d("API", "Inserted Work Experience");
                     Toast.makeText(AddWorkExperienceActivity.this, "Work Experience Saved!", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
                     try {
-                        Log.e("API", "Insert error: " + response.errorBody().string());
+                        Log.e("API", "Insert error");
                         Toast.makeText(AddWorkExperienceActivity.this, "Insert failed: " + response.message(), Toast.LENGTH_SHORT).show();
                     } catch (Exception e) { e.printStackTrace(); }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<WorkExperience>> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(AddWorkExperienceActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 finish();

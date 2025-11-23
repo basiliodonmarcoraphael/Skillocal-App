@@ -9,219 +9,219 @@
 9        android:targetSdkVersion="35" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:3:5-67
-11-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:3:22-64
+11-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:3:5-67
+11-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:3:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:4:5-79
-12-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:4:22-76
+12-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:4:5-79
+12-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:4:22-76
 13    <uses-permission android:name="android.permission.INTERNET" />
-13-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:3:5-67
-13-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:3:22-64
+13-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:3:5-67
+13-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:3:22-64
 14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-14-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:4:5-79
-14-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:4:22-76
+14-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:4:5-79
+14-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:4:22-76
 15
 16    <permission
-16-->[androidx.core:core:1.13.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+16-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
 17        android:name="com.example.skillocal_final.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-17-->[androidx.core:core:1.13.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+17-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
 18        android:protectionLevel="signature" />
-18-->[androidx.core:core:1.13.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+18-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
 19
 20    <uses-permission android:name="com.example.skillocal_final.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-20-->[androidx.core:core:1.13.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
-20-->[androidx.core:core:1.13.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+20-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:9:5-45:19
+22-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-45:19
 23        android:allowBackup="true"
-23-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:10:9-35
+23-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:10:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-24-->[androidx.core:core:1.13.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+24-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 25        android:dataExtractionRules="@xml/data_extraction_rules"
-25-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:11:9-65
+25-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:11:9-65
 26        android:debuggable="true"
 27        android:extractNativeLibs="false"
 28        android:fullBackupContent="@xml/backup_rules"
-28-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:12:9-54
+28-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:12:9-54
 29        android:icon="@mipmap/logo"
-29-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:13:9-36
+29-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:13:9-36
 30        android:label="@string/app_name"
-30-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:14:9-41
+30-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:14:9-41
 31        android:roundIcon="@mipmap/logo_round"
-31-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:15:9-47
+31-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:15:9-47
 32        android:supportsRtl="true"
-32-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:16:9-35
+32-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:16:9-35
 33        android:testOnly="true"
 34        android:theme="@style/Theme.SKILLocalfinal" >
-34-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:17:9-52
+34-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:17:9-52
 35
 36        <!-- Launcher -->
 37        <activity
-37-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:21:9-28:20
+37-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:21:9-28:20
 38            android:name="com.example.skillocal_final.LoginActivity"
-38-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:22:13-42
+38-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:22:13-42
 39            android:exported="true" >
-39-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:23:13-36
+39-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:23:13-36
 40            <intent-filter>
-40-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:24:13-27:29
+40-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:24:13-27:29
 41                <action android:name="android.intent.action.MAIN" />
-41-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:25:17-69
-41-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:25:25-66
+41-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:25:17-69
+41-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:25:25-66
 42
 43                <category android:name="android.intent.category.LAUNCHER" />
-43-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:26:17-77
-43-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:26:27-74
+43-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:26:17-77
+43-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:26:27-74
 44            </intent-filter>
 45        </activity>
 46        <activity
-46-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:31:9-84
+46-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:31:9-84
 47            android:name="com.example.skillocal_final.CreateAccountActivity"
-47-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:31:19-56
+47-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:31:19-56
 48            android:exported="false" />
-48-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:31:57-81
+48-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:31:57-81
 49        <activity
-49-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:32:9-75
+49-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:32:9-75
 50            android:name="com.example.skillocal_final.MainActivity"
-50-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:32:19-47
+50-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:32:19-47
 51            android:exported="false" />
-51-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:32:48-72
+51-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:32:48-72
 52        <activity
-52-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:33:9-85
+52-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:33:9-85
 53            android:name="com.example.skillocal_final.EstablishmentsActivity"
-53-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:33:19-57
+53-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:33:19-57
 54            android:exported="false" />
-54-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:33:58-82
+54-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:33:58-82
 55        <activity
-55-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:34:9-85
+55-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:34:9-85
 56            android:name="com.example.skillocal_final.AddEligibilityActivity"
-56-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:34:19-57
+56-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:34:19-57
 57            android:exported="false" />
-57-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:34:58-82
+57-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:34:58-82
 58        <activity
-58-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:35:9-82
+58-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:35:9-82
 59            android:name="com.example.skillocal_final.AddTrainingActivity"
-59-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:35:19-54
+59-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:35:19-54
 60            android:exported="false" />
-60-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:35:55-79
+60-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:35:55-79
 61        <activity
-61-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:36:9-88
+61-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:36:9-88
 62            android:name="com.example.skillocal_final.AddWorkExperienceActivity"
-62-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:36:19-60
+62-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:36:19-60
 63            android:exported="false" />
-63-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:36:61-85
+63-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:36:61-85
 64        <activity
-64-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:37:9-86
+64-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:9-86
 65            android:name="com.example.skillocal_final.CareerPortfolioActivity"
-65-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:37:19-58
+65-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:19-58
 66            android:exported="false" />
-66-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:37:59-83
+66-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:59-83
 67        <activity
-67-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:38:9-85
+67-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:9-85
 68            android:name="com.example.skillocal_final.JobApplicationActivity"
-68-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:38:19-57
+68-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:19-57
 69            android:exported="false" />
-69-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:38:58-82
+69-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:58-82
 70        <activity
-70-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:39:9-92
+70-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:9-92
 71            android:name="com.example.skillocal_final.ManageEmployerProfileActivity"
-71-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:39:19-64
+71-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:19-64
 72            android:exported="false" />
-72-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:39:65-89
+72-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:65-89
 73        <activity
-73-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:40:9-92
+73-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:9-92
 74            android:name="com.example.skillocal_final.ManageEmployeeProfileActivity"
-74-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:40:19-64
+74-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:19-64
 75            android:exported="false" />
-75-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:40:65-89
+75-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:65-89
 76        <activity
-76-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:41:9-81
+76-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:9-81
 77            android:name="com.example.skillocal_final.JobVacancyActivity"
-77-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:41:19-53
+77-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:19-53
 78            android:exported="false" />
-78-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:41:54-78
+78-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:54-78
 79        <activity
-79-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:42:9-90
+79-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:9-90
 80            android:name="com.example.skillocal_final.JobMatchingEmployeeActivity"
-80-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:42:19-62
+80-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:19-62
 81            android:exported="false" />
-81-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:42:63-87
+81-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:63-87
 82        <activity
-82-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:43:9-90
+82-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:9-90
 83            android:name="com.example.skillocal_final.JobMatchingEmployerActivity"
-83-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:43:19-62
+83-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:19-62
 84            android:exported="false" />
-84-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:43:63-87
+84-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:63-87
 85        <activity
-85-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:44:9-85
+85-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:9-85
 86            android:name="com.example.skillocal_final.ForgotPasswordActivity"
-86-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:44:19-57
+86-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:19-57
 87            android:exported="false" />
-87-->C:\Users\Tito Raphy\Downloads\Skillocal - app\app\src\main\AndroidManifest.xml:44:58-82
+87-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:58-82
 88
 89        <provider
-89-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+89-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 90            android:name="androidx.startup.InitializationProvider"
-90-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+90-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
 91            android:authorities="com.example.skillocal_final.androidx-startup"
-91-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+91-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
 92            android:exported="false" >
-92-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+92-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
 93            <meta-data
-93-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+93-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 94                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-94-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+94-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
 95                android:value="androidx.startup" />
-95-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+95-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 96            <meta-data
-96-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+96-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
 97                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-97-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+97-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
 98                android:value="androidx.startup" />
-98-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+98-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
 99            <meta-data
-99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
 100                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-100-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
 101                android:value="androidx.startup" />
-101-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
 102        </provider>
 103
 104        <receiver
-104-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+104-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
 105            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-105-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
 106            android:directBootAware="false"
-106-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
 107            android:enabled="true"
-107-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+107-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
 108            android:exported="true"
-108-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
 109            android:permission="android.permission.DUMP" >
-109-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
 110            <intent-filter>
-110-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
 111                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
 112            </intent-filter>
 113            <intent-filter>
-113-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
 114                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
 115            </intent-filter>
 116            <intent-filter>
-116-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+116-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
 117                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
 118            </intent-filter>
 119            <intent-filter>
-119-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+119-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
 120                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Tito Raphy\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
 121            </intent-filter>
 122        </receiver>
 123    </application>

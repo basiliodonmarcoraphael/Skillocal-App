@@ -33,7 +33,7 @@ public class Eligibility {
     public String getName(){return name;}
     public String getLicenseNumber(){return license_number;}
     public String getDateTaken(){return date_taken;}
-    public String getValidity_date(){return validity_date;}
+    public String getValidityDate(){return validity_date;}
 
     // ----------------- DatePicker Helper -----------------
     // Use this method in your Activity to show a calendar

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,8 @@ public class CareerPortfolioActivity extends AppCompatActivity {
     private List<WorkExperience> workExperiences;
     private LinearLayout layoutEligibility;
     private List<Eligibility> eligibilities;
+    private LinearLayout layoutTraining;
+    private List<Training> trainings;
     private SharedPreferences sharedPreferences;
     private String currentUserEmail;
     private int currentId;
@@ -46,6 +49,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
         super.onResume();
         loadWorkExperience();
         loadEligibility();
+        loadTraining();
     }
 
     @Override
@@ -58,10 +62,11 @@ public class CareerPortfolioActivity extends AppCompatActivity {
 
         layoutWorkExperience = findViewById(R.id.layout_workExperience);
         layoutEligibility = findViewById(R.id.layout_eligibility);
+        layoutTraining = findViewById(R.id.layout_training);
 
         // Toolbar Back Button
         btnBack = findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(v -> onBackPressed());
+        btnBack.setOnClickListener(v -> finish());
 
         // Portfolio buttons
         btnAddWork = findViewById(R.id.btn_add_work);
@@ -87,10 +92,14 @@ public class CareerPortfolioActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences userPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
         currentUserEmail = userPrefs.getString("email", "guest@user.com");
+
         workExperiences = new ArrayList<>();
         loadWorkExperience();
         eligibilities = new ArrayList<>();
         loadEligibility();
+        trainings = new ArrayList<>();
+        loadTraining();
+
     }
 
     private void loadWorkExperience() {
@@ -138,11 +147,36 @@ public class CareerPortfolioActivity extends AppCompatActivity {
 
 //        btnEdit.setOnClickListener(v -> showEditWorkExperienceDialog(estObj, tvName));
         btnDelete.setOnClickListener(v -> {
-            layoutWorkExperience.removeView(itemView);
-            workExperiences.remove(estObj);
+            deleteWorkExperience(estObj); //delete work experience function
+            loadWorkExperience();
         });
 
         layoutWorkExperience.addView(itemView);
+    }
+
+    private void deleteWorkExperience(WorkExperience estObj) {
+        Integer workExperienceId = estObj.getWorkExperienceId();
+        String workExpId = "eq." + workExperienceId; //change to string
+        Call<Void> call = api.deleteWorkExperience(workExpId);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Log.d("API", "Work Experience deleted successfully");
+                    Toast.makeText(CareerPortfolioActivity.this, "Work Experience deleted successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e("API", "Delete failed: " + response.code());
+                    Toast.makeText(CareerPortfolioActivity.this, "Delete failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("API", "Error: " + t.getMessage());
+            }
+
+        });
     }
 
     //list user's eligibility
@@ -191,12 +225,115 @@ public class CareerPortfolioActivity extends AppCompatActivity {
 
 //        btnEdit.setOnClickListener(v -> showEditEligibilityDialog(estObj, tvName));
         btnDelete.setOnClickListener(v -> {
-            layoutEligibility.removeView(itemView);
-            eligibilities.remove(estObj);
+            deleteEligibility(estObj);
+            loadEligibility();
         });
 
         layoutEligibility.addView(itemView);
     }
 
+    private void deleteEligibility(Eligibility estObj) {
+        Integer eligibilityId = estObj.getEligibilityId();
+        String eId = "eq." + eligibilityId; //change to string
+        Call<Void> call = api.deleteEligibility(eId);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Log.d("API", "Eligibility deleted successfully");
+                    Toast.makeText(CareerPortfolioActivity.this, "Eligibility deleted successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e("API", "Delete failed: " + response.code());
+                    Toast.makeText(CareerPortfolioActivity.this, "Delete failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("API", "Error: " + t.getMessage());
+            }
+
+        });
+    }
+
+    //list user's training
+    private void loadTraining() {
+        // CLEAR UI BEFORE LOADING — this forces redraw
+        layoutTraining.removeAllViews();
+        trainings.clear();
+
+        api.getTrainingByUserId(
+                "*",                     // select all columns
+                "eq." + currentId           // Supabase filter
+        ).enqueue(new Callback<List<Training>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Training>> call, @NonNull Response<List<Training>> response) {
+                if (response.isSuccessful()) {
+                    List<Training> resList = response.body();
+                    layoutTraining.removeAllViews();
+                    trainings.clear();
+
+                    assert resList != null;
+                    for (Training e : resList) {
+                        Log.d("API", "Training Name: " + e.getName());
+                        trainings.add(e);
+                        addTrainingToLayout(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Training>> call, @NonNull Throwable t) {
+                Log.e("API", "Failed: " + t.getMessage());
+
+            }
+        });
+    }
+
+    private void addTrainingToLayout(Training estObj) {
+        View itemView = LayoutInflater.from(this).inflate(R.layout.item_training, layoutTraining, false);
+
+        TextView tvName = itemView.findViewById(R.id.tv_training_name);
+        ImageView btnEdit = itemView.findViewById(R.id.btn_edit_training);
+        ImageView btnDelete = itemView.findViewById(R.id.btn_delete_training);
+
+        String name = estObj.getName();
+
+        tvName.setText(name);
+
+//        btnEdit.setOnClickListener(v -> showEditTrainingDialog(estObj, tvName));
+        btnDelete.setOnClickListener(v -> {
+            deleteTraining(estObj); //delete training function
+            loadTraining();
+        });
+
+        layoutTraining.addView(itemView);
+    }
+
+    private void deleteTraining(Training estObj) {
+        Integer trainingId = estObj.getTrainingId();
+        String tId = "eq." + trainingId; //change to string
+        Call<Void> call = api.deleteTraining(tId);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Log.d("API", "Training deleted successfully");
+                    Toast.makeText(CareerPortfolioActivity.this, "Training deleted successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e("API", "Delete failed: " + response.code());
+                    Toast.makeText(CareerPortfolioActivity.this, "Delete failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("API", "Error: " + t.getMessage());
+            }
+
+        });
+    }
 
 }
