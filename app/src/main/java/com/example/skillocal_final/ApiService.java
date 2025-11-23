@@ -37,6 +37,13 @@ public interface ApiService {
             @Query("select") String select
     );
 
+    @GET("Establishment")
+    Call<List<Establishment>> getEstablishmentByUserId(
+            @Query("select") String select,
+            @Query("user_id") String userIdFilter,
+            @Query("order") String order
+    );
+
     @POST("Establishment")
     Call<Establishment> insertEstablishment(@Body Establishment establishment);
 
