@@ -179,6 +179,7 @@ id textView6
 id textView7
 id toolbar
 id toolbar_add_work
+id toolbar_edit_work
 id toolbar_eligibility
 id toolbar_employee
 id toolbar_employer
@@ -220,6 +221,7 @@ layout activity_add_training
 layout activity_add_work_experience
 layout activity_career_portfolio
 layout activity_create_account
+layout activity_edit_work_experience
 layout activity_establishments
 layout activity_forgot_password
 layout activity_job_application

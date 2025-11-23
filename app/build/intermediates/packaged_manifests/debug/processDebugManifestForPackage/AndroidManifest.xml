@@ -62,6 +62,15 @@
             android:name="com.example.skillocal_final.AddWorkExperienceActivity"
             android:exported="false" />
         <activity
+            android:name="com.example.skillocal_final.EditWorkExperienceActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.skillocal_final.EditEligibilityActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.skillocal_final.EditTrainingActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.skillocal_final.CareerPortfolioActivity"
             android:exported="false" />
         <activity

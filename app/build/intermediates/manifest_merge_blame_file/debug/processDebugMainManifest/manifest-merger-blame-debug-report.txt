@@ -33,7 +33,7 @@
 20-->[androidx.core:core:1.13.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\45e8a571f6f1942e300328ed6b1b9f4d\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-45:19
+22-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-48:19
 23        android:allowBackup="true"
 23-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:10:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -111,119 +111,137 @@
 63            android:exported="false" />
 63-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:36:61-85
 64        <activity
-64-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:9-86
-65            android:name="com.example.skillocal_final.CareerPortfolioActivity"
-65-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:19-58
+64-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:9-89
+65            android:name="com.example.skillocal_final.EditWorkExperienceActivity"
+65-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:19-61
 66            android:exported="false" />
-66-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:59-83
+66-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:62-86
 67        <activity
-67-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:9-85
-68            android:name="com.example.skillocal_final.JobApplicationActivity"
-68-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:19-57
+67-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:9-86
+68            android:name="com.example.skillocal_final.EditEligibilityActivity"
+68-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:19-58
 69            android:exported="false" />
-69-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:58-82
+69-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:59-83
 70        <activity
-70-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:9-92
-71            android:name="com.example.skillocal_final.ManageEmployerProfileActivity"
-71-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:19-64
+70-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:9-83
+71            android:name="com.example.skillocal_final.EditTrainingActivity"
+71-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:19-55
 72            android:exported="false" />
-72-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:65-89
+72-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:56-80
 73        <activity
-73-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:9-92
-74            android:name="com.example.skillocal_final.ManageEmployeeProfileActivity"
-74-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:19-64
+73-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:9-86
+74            android:name="com.example.skillocal_final.CareerPortfolioActivity"
+74-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:19-58
 75            android:exported="false" />
-75-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:65-89
+75-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:59-83
 76        <activity
-76-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:9-81
-77            android:name="com.example.skillocal_final.JobVacancyActivity"
-77-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:19-53
+76-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:9-85
+77            android:name="com.example.skillocal_final.JobApplicationActivity"
+77-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:19-57
 78            android:exported="false" />
-78-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:54-78
+78-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:58-82
 79        <activity
-79-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:9-90
-80            android:name="com.example.skillocal_final.JobMatchingEmployeeActivity"
-80-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:19-62
+79-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:9-92
+80            android:name="com.example.skillocal_final.ManageEmployerProfileActivity"
+80-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:19-64
 81            android:exported="false" />
-81-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:63-87
+81-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:65-89
 82        <activity
-82-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:9-90
-83            android:name="com.example.skillocal_final.JobMatchingEmployerActivity"
-83-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:19-62
+82-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:9-92
+83            android:name="com.example.skillocal_final.ManageEmployeeProfileActivity"
+83-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:19-64
 84            android:exported="false" />
-84-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:63-87
+84-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:65-89
 85        <activity
-85-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:9-85
-86            android:name="com.example.skillocal_final.ForgotPasswordActivity"
-86-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:19-57
+85-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:9-81
+86            android:name="com.example.skillocal_final.JobVacancyActivity"
+86-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:19-53
 87            android:exported="false" />
-87-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:58-82
-88
-89        <provider
-89-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-90            android:name="androidx.startup.InitializationProvider"
-90-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-91            android:authorities="com.example.skillocal_final.androidx-startup"
-91-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-92            android:exported="false" >
-92-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-93            <meta-data
-93-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-94                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-94-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-95                android:value="androidx.startup" />
-95-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-96            <meta-data
-96-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-97                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-97-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-98                android:value="androidx.startup" />
-98-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-99            <meta-data
-99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
-100                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-100-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
-101                android:value="androidx.startup" />
-101-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
-102        </provider>
-103
-104        <receiver
-104-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
-105            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-105-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
-106            android:directBootAware="false"
-106-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
-107            android:enabled="true"
-107-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
-108            android:exported="true"
-108-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
-109            android:permission="android.permission.DUMP" >
-109-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
-110            <intent-filter>
-110-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
-111                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
-112            </intent-filter>
-113            <intent-filter>
-113-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
-114                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
-115            </intent-filter>
-116            <intent-filter>
-116-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
-117                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
-118            </intent-filter>
+87-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:54-78
+88        <activity
+88-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:45:9-90
+89            android:name="com.example.skillocal_final.JobMatchingEmployeeActivity"
+89-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:45:19-62
+90            android:exported="false" />
+90-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:45:63-87
+91        <activity
+91-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:46:9-90
+92            android:name="com.example.skillocal_final.JobMatchingEmployerActivity"
+92-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:46:19-62
+93            android:exported="false" />
+93-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:46:63-87
+94        <activity
+94-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:47:9-85
+95            android:name="com.example.skillocal_final.ForgotPasswordActivity"
+95-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:47:19-57
+96            android:exported="false" />
+96-->C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:47:58-82
+97
+98        <provider
+98-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+99            android:name="androidx.startup.InitializationProvider"
+99-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+100            android:authorities="com.example.skillocal_final.androidx-startup"
+100-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+101            android:exported="false" >
+101-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+102            <meta-data
+102-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+103                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+104                android:value="androidx.startup" />
+104-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\88f591e652bde881cd425aff7f67a3aa\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+105            <meta-data
+105-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+106                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+106-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+107                android:value="androidx.startup" />
+107-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\HP\.gradle\caches\8.11.1\transforms\355fe6fe1ee74b548deda34ea4bad40d\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+108            <meta-data
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+109                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+110                android:value="androidx.startup" />
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+111        </provider>
+112
+113        <receiver
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+114            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+115            android:directBootAware="false"
+115-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+116            android:enabled="true"
+116-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+117            android:exported="true"
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+118            android:permission="android.permission.DUMP" >
+118-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
 119            <intent-filter>
-119-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
-120                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+119-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+120                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
 121            </intent-filter>
-122        </receiver>
-123    </application>
-124
-125</manifest>
+122            <intent-filter>
+122-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+123                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+123-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+123-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+124            </intent-filter>
+125            <intent-filter>
+125-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+126                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+126-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+126-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+127            </intent-filter>
+128            <intent-filter>
+128-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+129                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+129-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+129-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\d49edf8a5876efd09cf1e7e5f39242b5\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+130            </intent-filter>
+131        </receiver>
+132    </application>
+133
+134</manifest>

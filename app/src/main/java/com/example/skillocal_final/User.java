@@ -2,44 +2,65 @@ package com.example.skillocal_final;
 
 public class User {
 
-    private final Integer user_id;
-    private final String email;
-    private final String firstName;
-    private final String middleName;
-    private final String lastName;
-    private final String suffix;
-    private final String role;
-    private final String status;
-    private final String created_at;
-    private final String password;
-    private final String modifiedAt;
+    private Integer user_id;
 
-    public User(Integer user_id, String email, String firstName,
-                String middleName, String lastName, String suffix, String role,String status,
-                String created_at, String password, String modifiedAt)
+    private String role;
+    private String email;
+    private String firstName;
+    private String middleName;
+    private  String lastName;
+    private  String suffix;
+    private  String status;
+    private  String birthDate;
+
+    private  String sex;
+    private  String civilStatus;
+    private  String address;
+    private  String contact_number;
+
+
+
+
+    public User(
+            String email,
+            String firstName,
+            String middleName, String lastName, String suffix,
+            String birthDate, String sex, String civilStatus, String address, String contact_number)
     {
-        this.user_id = user_id;
+
+//        this.user_id = user_id;
         this.email = email;
+
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.suffix = suffix;
-        this.role = role;
         this.status = status;
-        this.created_at = created_at;
-        this.password = password;
-        this.modifiedAt = modifiedAt;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.civilStatus = civilStatus;
+        this.address = address;
+        this.contact_number = contact_number;
+
     }
 
     public Integer getUserId(){return user_id;}
     public String getEmail(){return email;}
+
     public String getFName(){ return firstName;}
     public String getMName(){return middleName;}
     public String getLName(){return  lastName;}
     public String getSuffix(){return suffix;}
-    public String getRole(){return role;}
+
     public String getStatus(){return status;}
-    public String getCreated_at(){return created_at;}
-    public String getPassword(){return password;}
-    public String getModifiedAt(){return modifiedAt;}
+    public String getBirthDate(){return birthDate;}
+
+    public String getSex(){return sex;}
+    public String getCivilStatus(){return civilStatus;}
+
+    public String getAddress(){return address;}
+    public String getContactNumber(){return contact_number;}
+
+    public String getRole(){return role;}
+
 }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-46:12
-INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-46:12
-INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-46:12
-INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-46:12
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-49:12
+INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-49:12
+INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-49:12
+INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:1:1-49:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\e573f8c7f920ddaaa381d7cc4b7025c6\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\HP\.gradle\caches\8.11.1\transforms\3a59fd1a6dec3844df41e752c5da3120\transformed\constraintlayout-2.2.1\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\8dca59e55bb5536de8a63ecda72731ae\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
@@ -65,8 +65,8 @@ ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:4:22-76
 application
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-45:19
-INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-45:19
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-48:19
+INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:9:5-48:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\e573f8c7f920ddaaa381d7cc4b7025c6\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\HP\.gradle\caches\8.11.1\transforms\e573f8c7f920ddaaa381d7cc4b7025c6\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\HP\.gradle\caches\8.11.1\transforms\3a59fd1a6dec3844df41e752c5da3120\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
@@ -157,54 +157,72 @@ ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:36:61-85
 	android:name
 		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:36:19-60
+activity#com.example.skillocal_final.EditWorkExperienceActivity
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:9-89
+	android:exported
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:62-86
+	android:name
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:19-61
+activity#com.example.skillocal_final.EditEligibilityActivity
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:9-86
+	android:exported
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:59-83
+	android:name
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:19-58
+activity#com.example.skillocal_final.EditTrainingActivity
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:9-83
+	android:exported
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:56-80
+	android:name
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:19-55
 activity#com.example.skillocal_final.CareerPortfolioActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:9-86
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:9-86
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:59-83
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:59-83
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:37:19-58
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:19-58
 activity#com.example.skillocal_final.JobApplicationActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:9-85
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:9-85
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:58-82
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:58-82
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:38:19-57
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:19-57
 activity#com.example.skillocal_final.ManageEmployerProfileActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:9-92
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:9-92
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:65-89
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:65-89
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:39:19-64
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:19-64
 activity#com.example.skillocal_final.ManageEmployeeProfileActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:9-92
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:9-92
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:65-89
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:65-89
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:40:19-64
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:19-64
 activity#com.example.skillocal_final.JobVacancyActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:9-81
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:9-81
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:54-78
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:54-78
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:41:19-53
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:19-53
 activity#com.example.skillocal_final.JobMatchingEmployeeActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:9-90
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:45:9-90
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:63-87
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:45:63-87
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:42:19-62
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:45:19-62
 activity#com.example.skillocal_final.JobMatchingEmployerActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:9-90
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:46:9-90
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:63-87
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:46:63-87
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:43:19-62
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:46:19-62
 activity#com.example.skillocal_final.ForgotPasswordActivity
-ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:9-85
+ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:47:9-85
 	android:exported
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:58-82
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:47:58-82
 	android:name
-		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:44:19-57
+		ADDED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml:47:19-57
 uses-sdk
 INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\HP\Documents\Skilllocal-App\app\src\main\AndroidManifest.xml

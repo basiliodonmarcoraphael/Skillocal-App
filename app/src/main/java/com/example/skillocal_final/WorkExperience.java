@@ -1,6 +1,7 @@
 package com.example.skillocal_final;
+import java.io.Serializable;
 //class or type for Work Experience
-public class WorkExperience {
+public class WorkExperience implements Serializable {
     private Integer work_experience_id;
     private Integer user_id;
     private String company;
