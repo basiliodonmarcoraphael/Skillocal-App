@@ -3,10 +3,12 @@ package com.example.skillocal_final;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.widget.EditText;
+
+import java.io.Serializable;
 import java.util.Calendar;
 
 // class or type for Work Experience
-public class Eligibility {
+public class Eligibility implements Serializable {
     private Integer eligibility_id;
     private Integer user_id;
     private String name;

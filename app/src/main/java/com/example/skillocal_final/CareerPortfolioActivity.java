@@ -109,7 +109,8 @@ public class CareerPortfolioActivity extends AppCompatActivity {
 
         api.getWorkExperienceByUserId(
                 "*",                     // select all columns
-                "eq." + currentId           // Supabase filter
+                "eq." + currentId,           // Supabase filter
+                "work_experience_id.asc"     // order by work_experience_id ascending
         ).enqueue(new Callback<List<WorkExperience>>() {
             @Override
             public void onResponse(@NonNull Call<List<WorkExperience>> call, @NonNull Response<List<WorkExperience>> response) {
@@ -141,14 +142,30 @@ public class CareerPortfolioActivity extends AppCompatActivity {
         ImageView btnEdit = itemView.findViewById(R.id.btn_edit_work_experience);
         ImageView btnDelete = itemView.findViewById(R.id.btn_delete_work_experience);
 
+        String companyName = estObj.getCompany();
+        String address = estObj.getAddress();
+        String position = estObj.getPosition();
+        Integer monthCount = estObj.getMonthCount();
+        String status = estObj.getEmploymentStatus();
+        Integer workExperienceId = estObj.getWorkExperienceId();
+
         String name = estObj.getCompany();
 
         tvName.setText(name);
 
-//        btnEdit.setOnClickListener(v -> showEditWorkExperienceDialog(estObj, tvName));
+        btnEdit.setOnClickListener(v -> {
+            Intent intent = new Intent(CareerPortfolioActivity.this, EditWorkExperienceActivity.class);
+            intent.putExtra("companyName", companyName);
+            intent.putExtra("address", address);
+            intent.putExtra("position", position);
+            intent.putExtra("monthCount", monthCount);  // pass object
+            intent.putExtra("status", status);  // pass object
+            intent.putExtra("workExperienceId", workExperienceId);  // pass object
+            startActivity(intent);
+        });
         btnDelete.setOnClickListener(v -> {
             deleteWorkExperience(estObj); //delete work experience function
-            loadWorkExperience();
+
         });
 
         layoutWorkExperience.addView(itemView);
@@ -165,6 +182,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("API", "Work Experience deleted successfully");
                     Toast.makeText(CareerPortfolioActivity.this, "Work Experience deleted successfully", Toast.LENGTH_SHORT).show();
+                    loadWorkExperience();
                 } else {
                     Log.e("API", "Delete failed: " + response.code());
                     Toast.makeText(CareerPortfolioActivity.this, "Delete failed", Toast.LENGTH_SHORT).show();
@@ -174,6 +192,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.e("API", "Error: " + t.getMessage());
+                loadWorkExperience();
             }
 
         });
@@ -187,7 +206,8 @@ public class CareerPortfolioActivity extends AppCompatActivity {
 
         api.getEligibilityByUserId(
                 "*",                     // select all columns
-                "eq." + currentId           // Supabase filter
+                "eq." + currentId,           // Supabase filter
+                "eligibility_id.asc"     // order by work_experience_id ascending
         ).enqueue(new Callback<List<Eligibility>>() {
             @Override
             public void onResponse(@NonNull Call<List<Eligibility>> call, @NonNull Response<List<Eligibility>> response) {
@@ -220,13 +240,25 @@ public class CareerPortfolioActivity extends AppCompatActivity {
         ImageView btnDelete = itemView.findViewById(R.id.btn_delete_eligibility);
 
         String name = estObj.getName();
+        String licenseNumber = estObj.getLicenseNumber();
+        String dateTaken = estObj.getDateTaken();
+        String validityDate = estObj.getValidityDate();
+        Integer eligibilityId = estObj.getEligibilityId();
 
         tvName.setText(name);
 
-//        btnEdit.setOnClickListener(v -> showEditEligibilityDialog(estObj, tvName));
+        btnEdit.setOnClickListener(v -> {
+            Intent intent = new Intent(CareerPortfolioActivity.this, EditEligibilityActivity.class);
+            intent.putExtra("name", name);
+            intent.putExtra("licenseNumber", licenseNumber);
+            intent.putExtra("dateTaken", dateTaken);
+            intent.putExtra("validityDate", validityDate);  // pass object
+            intent.putExtra("eligibilityId", eligibilityId);  // pass object
+            startActivity(intent);
+        });
         btnDelete.setOnClickListener(v -> {
             deleteEligibility(estObj);
-            loadEligibility();
+
         });
 
         layoutEligibility.addView(itemView);
@@ -243,6 +275,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("API", "Eligibility deleted successfully");
                     Toast.makeText(CareerPortfolioActivity.this, "Eligibility deleted successfully", Toast.LENGTH_SHORT).show();
+                    loadEligibility();
                 } else {
                     Log.e("API", "Delete failed: " + response.code());
                     Toast.makeText(CareerPortfolioActivity.this, "Delete failed", Toast.LENGTH_SHORT).show();
@@ -252,6 +285,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.e("API", "Error: " + t.getMessage());
+                loadEligibility();
             }
 
         });
@@ -265,7 +299,8 @@ public class CareerPortfolioActivity extends AppCompatActivity {
 
         api.getTrainingByUserId(
                 "*",                     // select all columns
-                "eq." + currentId           // Supabase filter
+                "eq." + currentId,           // Supabase filter
+                "training_id.asc"     // order by work_experience_id ascending
         ).enqueue(new Callback<List<Training>>() {
             @Override
             public void onResponse(@NonNull Call<List<Training>> call, @NonNull Response<List<Training>> response) {
@@ -299,13 +334,26 @@ public class CareerPortfolioActivity extends AppCompatActivity {
         ImageView btnDelete = itemView.findViewById(R.id.btn_delete_training);
 
         String name = estObj.getName();
+        Integer hours = estObj.getHours();
+        String institution = estObj.getInstitution();
+        String skillsAcquired = estObj.getSkillsAcquired();
+        Integer trainingId = estObj.getTrainingId();
 
         tvName.setText(name);
 
-//        btnEdit.setOnClickListener(v -> showEditTrainingDialog(estObj, tvName));
+        btnEdit.setOnClickListener(v -> {
+            Intent intent = new Intent(CareerPortfolioActivity.this, EditTrainingActivity.class);
+            intent.putExtra("name", name);
+            intent.putExtra("hours", hours);
+            intent.putExtra("institution", institution);
+            intent.putExtra("skillsAcquired", skillsAcquired);  // pass object
+            intent.putExtra("trainingId", trainingId);  // pass object
+            Log.e("API", "Training Id: " + trainingId);
+            startActivity(intent);
+        });
         btnDelete.setOnClickListener(v -> {
             deleteTraining(estObj); //delete training function
-            loadTraining();
+
         });
 
         layoutTraining.addView(itemView);
@@ -322,6 +370,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("API", "Training deleted successfully");
                     Toast.makeText(CareerPortfolioActivity.this, "Training deleted successfully", Toast.LENGTH_SHORT).show();
+                    loadTraining();
                 } else {
                     Log.e("API", "Delete failed: " + response.code());
                     Toast.makeText(CareerPortfolioActivity.this, "Delete failed", Toast.LENGTH_SHORT).show();
@@ -331,6 +380,7 @@ public class CareerPortfolioActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.e("API", "Error: " + t.getMessage());
+                loadTraining();
             }
 
         });

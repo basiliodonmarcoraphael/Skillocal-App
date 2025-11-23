@@ -34,6 +34,9 @@
         <activity android:name=".AddEligibilityActivity" android:exported="false" />
         <activity android:name=".AddTrainingActivity" android:exported="false" />
         <activity android:name=".AddWorkExperienceActivity" android:exported="false" />
+        <activity android:name=".EditWorkExperienceActivity" android:exported="false" />
+        <activity android:name=".EditEligibilityActivity" android:exported="false" />
+        <activity android:name=".EditTrainingActivity" android:exported="false" />
         <activity android:name=".CareerPortfolioActivity" android:exported="false" />
         <activity android:name=".JobApplicationActivity" android:exported="false" />
         <activity android:name=".ManageEmployerProfileActivity" android:exported="false" />

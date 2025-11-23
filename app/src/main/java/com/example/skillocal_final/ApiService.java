@@ -16,6 +16,21 @@ public interface ApiService {
             @Query("select") String select            // usually: "*"
     );
 
+    //    FOR USERS TABLE - Manage Employee Profile
+    @GET("Users")
+    Call<List<User>> getUserByUserId(
+            @Query("select") String select,
+            @Query("user_id") String userIdFilter
+    );
+
+
+    // UPDATE Training - Use PATCH for partial updates
+    @PATCH("Users")
+    Call<Void> updateUser(
+            @Query("user_id") String eqFilter,  // example: "eq.123"
+            @Body User user
+    );
+
     //This is for Establishment Table
     @GET("Establishment")
     Call<List<Establishment>> getAllEstablishment(

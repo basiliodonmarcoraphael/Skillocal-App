@@ -21,8 +21,11 @@ public interface ApiServiceWorker {
     @GET("WorkExperience")
     Call<List<WorkExperience>> getWorkExperienceByUserId(
             @Query("select") String select,
-            @Query("user_id") String userIdFilter
+            @Query("user_id") String userIdFilter,
+            @Query("order") String order
     );
+
+
 
     @POST("WorkExperience")
     Call<Void> insertWorkExperience(
@@ -32,7 +35,7 @@ public interface ApiServiceWorker {
 
     // UPDATE WorkExperience - Use PATCH for partial updates
     @PATCH("WorkExperience")
-    Call<WorkExperience> updateWorkExperience(
+    Call<Void> updateWorkExperience(
             @Query("work_experience_id") String eqFilter,  // example: "eq.123"
             @Body WorkExperience workExperience
     );
@@ -55,7 +58,8 @@ public interface ApiServiceWorker {
     @GET("Eligibility")
     Call<List<Eligibility>> getEligibilityByUserId(
             @Query("select") String select,
-            @Query("user_id") String userIdFilter
+            @Query("user_id") String userIdFilter,
+            @Query("order") String order
     );
 
     @POST("Eligibility")
@@ -66,7 +70,7 @@ public interface ApiServiceWorker {
 
     // UPDATE Eligibility - Use PATCH for partial updates
     @PATCH("Eligibility")
-    Call<Eligibility> updateEligibility(
+    Call<Void> updateEligibility(
             @Query("eligibility_id") String eqFilter,  // example: "eq.123"
             @Body Eligibility eligibility
     );
@@ -87,7 +91,8 @@ public interface ApiServiceWorker {
     @GET("Trainings")
     Call<List<Training>> getTrainingByUserId(
             @Query("select") String select,
-            @Query("user_id") String userIdFilter
+            @Query("user_id") String userIdFilter,
+            @Query("order") String order
     );
 
 
@@ -99,7 +104,7 @@ public interface ApiServiceWorker {
 
     // UPDATE Training - Use PATCH for partial updates
     @PATCH("Trainings")
-    Call<Training> updateTraining(
+    Call<Void> updateTraining(
             @Query("training_id") String eqFilter,  // example: "eq.123"
             @Body Training training
     );
@@ -108,4 +113,22 @@ public interface ApiServiceWorker {
     Call<Void> deleteTraining(
             @Query("training_id") String trainingIdEq  // e.g. "eq.45"
     );
+
+
+
+//    FOR USERS TABLE - Manage Employee Profile
+    @GET("Users")
+    Call<List<User>> getUserByUserId(
+            @Query("select") String select,
+            @Query("user_id") String userIdFilter
+    );
+
+
+    // UPDATE Training - Use PATCH for partial updates
+    @PATCH("Users")
+    Call<Void> updateUser(
+            @Query("user_id") String eqFilter,  // example: "eq.123"
+            @Body User user
+    );
+
 }
