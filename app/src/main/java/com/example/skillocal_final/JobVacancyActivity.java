@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -28,16 +30,25 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class JobVacancyActivity extends AppCompatActivity {
 
     private LinearLayout layoutJobs;
-    private ArrayList<JSONObject> jobs;
+    private ArrayList<JobVacancy> jobs;
+    private ArrayList<Establishment> establishments;
     private SharedPreferences sharedPreferences;
     private String currentUserEmail;
 
     private static final String PREFS_NAME = "SkillocalPrefs";
     private static final String KEY_JOBS = "jobs_per_user";
+
+    ApiServiceJobVacancy api = ApiInstance.getApiJobVacancy();
+    ApiService apiExt = ApiInstance.getApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,23 +92,49 @@ public class JobVacancyActivity extends AppCompatActivity {
     }
 
     private void loadJobs() {
-        layoutJobs.removeAllViews();
-        jobs.clear();
+        api.getAllJobVacancy(
+                "*").enqueue(new Callback<List<JobVacancy>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<JobVacancy>> call, @NonNull Response<List<JobVacancy>> response) {
+                if (response.isSuccessful()) {
+                    List<JobVacancy> resList = response.body();
+                    layoutJobs.removeAllViews();
+                    jobs.clear();
 
-        String jsonString = sharedPreferences.getString(KEY_JOBS, "{}");
-        try {
-            JSONObject json = new JSONObject(jsonString);
-            if (json.has(currentUserEmail)) {
-                JSONArray arr = json.getJSONArray(currentUserEmail);
-                for (int i = 0; i < arr.length(); i++) {
-                    JSONObject job = arr.getJSONObject(i);
-                    jobs.add(job);
-                    addJobToLayout(job);
+                    assert resList != null;
+                    for (JobVacancy e : resList) {
+                        jobs.add(e);
+                        addJobToLayout(e);
+                    }
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
+            @Override
+            public void onFailure(@NonNull Call<List<JobVacancy>> call, @NonNull Throwable t) {
+                Log.e("API", "Failed: " + t.getMessage());
+            }
+        });
+
+        apiExt.getAllEstablishment(
+                "*").enqueue(new Callback<List<Establishment>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Establishment>> call, @NonNull Response<List<Establishment>> response) {
+                if (response.isSuccessful()) {
+                    List<Establishment> resList = response.body();
+
+                    assert resList != null;
+                    for (Establishment e : resList) {
+                        Log.d("API", "User: " + e.getAddress());
+                        establishments.add(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Establishment>> call, @NonNull Throwable t) {
+                Log.e("API", "Failed: " + t.getMessage());
+            }
+        });
     }
 
     private void saveJobs() {
@@ -183,7 +220,7 @@ public class JobVacancyActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void addJobToLayout(JSONObject jobObj) {
+    private void addJobToLayout(JobVacancy jobObj) {
         View itemView = LayoutInflater.from(this).inflate(R.layout.item_job, layoutJobs, false);
 
         TextView tvJobInfo = itemView.findViewById(R.id.tv_job_info);
@@ -191,14 +228,14 @@ public class JobVacancyActivity extends AppCompatActivity {
         ImageView btnDelete = itemView.findViewById(R.id.btn_delete_job);
 
         try {
-            String info = jobObj.getString("jobName") + " at " + jobObj.getString("estName")
-                    + " - " + jobObj.getString("status")
-                    + "\nReviewed By: " + jobObj.getString("reviewedBy")
-                    + "\nSubmission: " + jobObj.getString("submissionDate")
-                    + " | Review: " + jobObj.getString("reviewDate");
+            String info = jobObj.getJob_title() + " at " + jobObj.getEstablishment_id().toString()
+                    + " - " + jobObj.getStatus()
+                    + "\nReviewed By: " + jobObj.getReviewed_by().toString()
+                    + "\nSubmission: " + jobObj.getCreated_date()
+                    + " | Review: " + jobObj.getReviewed_date();
 
             tvJobInfo.setText(info);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -212,7 +249,7 @@ public class JobVacancyActivity extends AppCompatActivity {
         layoutJobs.addView(itemView);
     }
 
-    private void showEditJobDialog(JSONObject jobObj, TextView tvJobInfo) {
+    private void showEditJobDialog(JobVacancy jobObj, TextView tvJobInfo) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Job Vacancy");
 
@@ -231,14 +268,16 @@ public class JobVacancyActivity extends AppCompatActivity {
         spinnerStatus.setAdapter(statusAdapter);
 
         try {
-            etJobName.setText(jobObj.getString("jobName"));
-            etEstName.setText(jobObj.getString("estName"));
-            etReviewedBy.setText(jobObj.getString("reviewedBy"));
-            etSubmissionDate.setText(jobObj.getString("submissionDate"));
-            etReviewDate.setText(jobObj.getString("reviewDate"));
-            String status = jobObj.getString("status");
+            Establishment myEstablishment = findEstablishmentById(establishments, jobObj.getEstablishment_id());
+            etJobName.setText(jobObj.getJob_title());
+            assert myEstablishment != null;
+            etEstName.setText(myEstablishment.getEstablishmentName());
+//            etReviewedBy.setText(jobObj.getString("reviewedBy"));
+            etSubmissionDate.setText(jobObj.getCreated_date());
+            etReviewDate.setText(jobObj.getReviewed_date());
+            String status = jobObj.getStatus();
             spinnerStatus.setSelection(status.equalsIgnoreCase("Active") ? 0 : 1);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -302,4 +341,14 @@ public class JobVacancyActivity extends AppCompatActivity {
         finish();
         return true;
     }
+
+    private Establishment findEstablishmentById(List<Establishment> list, int id) {
+        for (Establishment e : list) {
+            if (e.getEstablishment_id() != null && e.getEstablishment_id() == id) {
+                return e;
+            }
+        }
+        return null; // Not found
+    }
+
 }
