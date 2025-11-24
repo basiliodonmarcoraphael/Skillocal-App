@@ -3,6 +3,7 @@ package com.example.skillocal_final;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
@@ -52,5 +53,10 @@ public interface ApiService {
     Call<Establishment> updateEstablishment(
             @Query("establishment_id") String eqFilter,  // example: "eq.123"
             @Body Establishment establishment
+    );
+
+    @DELETE("Establishment")
+    Call<Void> deleteEstablishment(
+            @Query("establishment_id") String eqFilter // example: "eq.55"
     );
 }

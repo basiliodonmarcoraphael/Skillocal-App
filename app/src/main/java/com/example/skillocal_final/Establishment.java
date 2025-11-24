@@ -20,7 +20,7 @@ public class Establishment {
     public Establishment(String establishmentName, String email,
                          String industryType, String contactPerson, String contactNumber,
                          String address, String status, String modifiedAt,
-                         Integer user_id, Integer total_employee)
+                         Integer user_id, Integer total_employee, String createdAt)
     {
         this.establishmentName = establishmentName;
         this.email = email;
@@ -32,6 +32,7 @@ public class Establishment {
         this.modifiedAt = modifiedAt;
         this.user_id = user_id;
         this.total_employee = total_employee;
+        this.createdAt = createdAt;
     }
 
     public Integer getEstablishment_id(){return  establishment_id;}

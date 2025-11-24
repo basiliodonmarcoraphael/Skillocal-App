@@ -114,7 +114,27 @@ public class EstablishmentsActivity extends AppCompatActivity {
             public void onFailure(@NonNull Call<Establishment> call, @NonNull Throwable t) {
                 // NETWORK / RUNTIME ERROR
                 Log.e("API", "Network error: " + t.getMessage());
-                t.printStackTrace(); // Better than fillInStackTrace() for logging
+                t.fillInStackTrace(); // Better than fillInStackTrace() for logging
+            }
+        });
+    }
+
+    private void deleteEstablishment(Integer id){
+        api.deleteEstablishment("eq." + id).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Log.d("API", "User deleted");
+                } else {
+                    Log.d("API", "Delete failed: " + response.code());
+                }
+                loadEstablishments();
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                t.fillInStackTrace();
+                loadEstablishments();
             }
         });
     }
@@ -283,7 +303,8 @@ public class EstablishmentsActivity extends AppCompatActivity {
                         status,
                         null,
                         currentId,
-                        Integer.parseInt(totalEmp)
+                        Integer.parseInt(totalEmp),
+                        null
                 );
 
                 insertEstablishment(est);
@@ -309,6 +330,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
 
         btnEdit.setOnClickListener(v -> showEditEstablishmentDialog(estObj, tvName));
         btnDelete.setOnClickListener(v -> {
+            deleteEstablishment(estObj.getEstablishment_id());
             layoutEstablishments.removeView(itemView);
             establishments.remove(estObj);
             saveEstablishments();
@@ -343,9 +365,13 @@ public class EstablishmentsActivity extends AppCompatActivity {
         // Fill current values
         etName.setText(estObj.getEstablishmentName());
         etTotalEmployees.setText(estObj.getTotal_employee().toString());
-        String status = estObj.getStatus();
-        spinnerStatus.setSelection(status.equalsIgnoreCase("Active") ? 0 : 1);
+        spinnerStatus.setSelection(estObj.getStatus().equalsIgnoreCase("Active") ? 0 : 1);
         etRegDate.setText(dateStringToFormatString(estObj.getCreatedAt()));
+        txtIndType.setText(estObj.getIndustryType());
+        txtEmail.setText(estObj.getEmailInEstablishment());
+        txtContactP.setText(estObj.getContactPerson());
+        txtContactN.setText(estObj.getContactNumber());
+        txtAddress.setText(estObj.getAddress());
 
         // Registration date picker
         etRegDate.setOnClickListener(v -> {
@@ -379,6 +405,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
             String contactP = txtContactP.getText().toString().trim();
             String contactN = txtContactN.getText().toString().trim();
             String address = txtAddress.getText().toString().trim();
+            String status = spinnerStatus.getSelectedItem().toString().trim();
 
             // SUCCESS — now allow closing
             Establishment est = new Establishment(
@@ -389,23 +416,12 @@ public class EstablishmentsActivity extends AppCompatActivity {
                     contactN,
                     address,
                     status,
-                    null,
+                    new Date().toString(),
                     currentId,
-                    Integer.parseInt(totalEmp)
+                    Integer.parseInt(totalEmp),
+                    regDate
             );
             updateEstablishment(est, estObj.getEstablishment_id());
-
-//            try {
-//                estObj.put("name", name);
-//                estObj.put("totalEmployees", totalEmp);
-//                estObj.put("status", status);
-//                estObj.put("regDate", regDate);
-//
-//                tvName.setText(name + " (" + totalEmp + " employees) - " + status + " - " + regDate);
-//                saveEstablishments();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
