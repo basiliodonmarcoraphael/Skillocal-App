@@ -7,13 +7,13 @@ public class JobVacancy {
     private String remarks;
     private String created_date;
     private String reviewed_date;
-    private Integer reviewed_by;
+    private String reviewed_by;
     private String job_title;
 
     public JobVacancy(){} //for retrofit
 
     public JobVacancy(Integer establishment_id, String status, String remarks,
-                      String created_date, String reviewed_date, Integer reviewed_by,
+                      String created_date, String reviewed_date, String reviewed_by,
                       String job_title)
     {
         this.establishment_id = establishment_id;
@@ -32,6 +32,6 @@ public class JobVacancy {
     public String getRemarks(){return remarks;}
     public String getCreated_date(){return created_date;}
     public String getReviewed_date(){return reviewed_date;}
-    public Integer getReviewed_by(){return reviewed_by;}
+    public String getReviewed_by(){return reviewed_by;}
     public String getJob_title(){return job_title;}
 }

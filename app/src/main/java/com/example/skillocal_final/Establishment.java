@@ -1,5 +1,7 @@
 package com.example.skillocal_final;
 
+import androidx.annotation.NonNull;
+
 public class Establishment {
     private Integer establishment_id;
     private String establishmentName;
@@ -47,4 +49,14 @@ public class Establishment {
     public String getModifiedAt(){return modifiedAt;}
     public Integer getUser_id(){return user_id;}
     public Integer getTotal_employee(){return total_employee;}
+
+    @NonNull
+    @Override
+    public String toString() {
+        return establishmentName; // or getEstablishmentName()
+    }
+
+    public void setEstablishmentName(String input){
+        this.establishmentName = input;
+    }
 }
