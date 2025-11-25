@@ -119,7 +119,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
         });
     }
 
-    private void deleteEstablishment(Integer id){
+    private void deleteEstablishment(Integer id, Context cont, String name){
         api.deleteEstablishment("eq." + id).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
@@ -127,6 +127,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
                     Log.d("API", "User deleted");
                 } else {
                     Log.d("API", "Delete failed: " + response.code());
+                    Toast.makeText(cont, "This "+name+" is in used. Can't be deleted.", Toast.LENGTH_SHORT).show();
                 }
                 loadEstablishments();
             }
@@ -134,6 +135,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
                 t.fillInStackTrace();
+                Toast.makeText(cont, "This Establishment is in used. Can't be deleted.", Toast.LENGTH_SHORT).show();
                 loadEstablishments();
             }
         });
@@ -330,7 +332,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
 
         btnEdit.setOnClickListener(v -> showEditEstablishmentDialog(estObj, tvName));
         btnDelete.setOnClickListener(v -> {
-            deleteEstablishment(estObj.getEstablishment_id());
+            deleteEstablishment(estObj.getEstablishment_id(), this, estObj.getEstablishmentName());
             layoutEstablishments.removeView(itemView);
             establishments.remove(estObj);
             saveEstablishments();
