@@ -59,4 +59,9 @@ public interface ApiService {
     Call<Void> deleteEstablishment(
             @Query("establishment_id") String eqFilter // example: "eq.55"
     );
+
+    @GET("Industry")
+    Call<List<Industry>> getAllIndustry(
+            @Query("select") String select
+    );
 }

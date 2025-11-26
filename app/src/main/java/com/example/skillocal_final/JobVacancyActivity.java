@@ -45,6 +45,8 @@ public class JobVacancyActivity extends AppCompatActivity {
     private LinearLayout layoutJobs;
     private ArrayList<JobVacancy> jobs;
     private List<Establishment> establishments;
+    private List<Industry> industry;
+    private List<String> empType;
     private SharedPreferences sharedPreferences;
     private String currentUserEmail;
 
@@ -58,6 +60,9 @@ public class JobVacancyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_vacancy);
+        empType = new ArrayList<>(
+                List.of("Full-Time", "Part-Time", "Contract", "Internship", "Others")
+        );
 
         Toolbar toolbar = findViewById(R.id.toolbar_job);
         setSupportActionBar(toolbar);
@@ -130,6 +135,21 @@ public class JobVacancyActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<List<Establishment>> call, @NonNull Throwable t) {
+                Log.e("API", "Failed: " + t.getMessage());
+            }
+        });
+
+        apiExt.getAllIndustry(
+                "*").enqueue(new Callback<List<Industry>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Industry>> call, @NonNull Response<List<Industry>> response) {
+                if (response.isSuccessful()) {
+                    industry = response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Industry>> call, @NonNull Throwable t) {
                 Log.e("API", "Failed: " + t.getMessage());
             }
         });
@@ -254,17 +274,21 @@ public class JobVacancyActivity extends AppCompatActivity {
 
         EditText etJobName = view.findViewById(R.id.et_job_name);
         Spinner spnEst = view.findViewById(R.id.spinner_est);
+        Spinner spnInd = view.findViewById(R.id.spinner_ind);
         Spinner spinnerStatus = view.findViewById(R.id.spinner_status);
+        Spinner spinnerEmpType = view.findViewById(R.id.spinner_empType);
         EditText etReviewedBy = view.findViewById(R.id.et_reviewed_by);
         EditText etSubmissionDate = view.findViewById(R.id.et_submission_date);
         EditText etReviewDate = view.findViewById(R.id.et_review_date);
         // Create a dummy establishment as hint
         Establishment hint = new Establishment();
+        Industry hintInd = new Industry();
         hint.setEstablishmentName("Please Select Establishment");
+        hintInd.setIndustryName("Please Select Industry");
 
         // Add hint as the first item
         establishments.add(0, hint);
-
+        industry.add(0, hintInd);
 
         ArrayAdapter<Establishment> estAdapter = new ArrayAdapter<Establishment>(
                 this,
@@ -292,12 +316,45 @@ public class JobVacancyActivity extends AppCompatActivity {
             }
         };
 
+
+        ArrayAdapter<Industry> indAdapter = new ArrayAdapter<Industry>(
+                this,
+                android.R.layout.simple_spinner_item,
+                industry
+        ) {
+            @Override
+            public boolean isEnabled(int position) {
+                // Disable the hint item
+                return position != 0;
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    tv.setTextColor(Color.GRAY); // hint color
+                } else {
+                    tv.setTextColor(Color.BLACK);
+                }
+
+                return view;
+            }
+        };
+
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, new String[]{"Active", "Closed"});
+        ArrayAdapter<String> empTypeAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, empType);
         estAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        indAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        empTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStatus.setAdapter(statusAdapter);
         spnEst.setAdapter(estAdapter);
+        spnInd.setAdapter(indAdapter);
+        spinnerEmpType.setAdapter(empTypeAdapter);
 
         etSubmissionDate.setOnClickListener(v -> showDatePicker(etSubmissionDate));
         etReviewDate.setOnClickListener(v -> showDatePicker(etReviewDate));
@@ -307,25 +364,21 @@ public class JobVacancyActivity extends AppCompatActivity {
         builder.setPositiveButton("Add", (dialog, which) -> {
             String jobName = etJobName.getText().toString().trim();
             String estName = spnEst.getSelectedItem().toString().trim();
+            String indName = spnInd.getSelectedItem().toString().trim();
             String status = spinnerStatus.getSelectedItem().toString();
+            String empTypeName = spinnerEmpType.getSelectedItem().toString();
             String reviewedBy = etReviewedBy.getText().toString().trim();
             String submissionDate = etSubmissionDate.getText().toString().trim();
             String reviewDate = etReviewDate.getText().toString().trim();
             int estID = findEstIdByName(establishments, estName);
+            int indID = findIndIdByName(industry, indName);
 
-            if (jobName.isEmpty() || estName.isEmpty() || estID == 0 || submissionDate.isEmpty() || reviewDate.isEmpty()) {
+            if (jobName.isEmpty() || estName.isEmpty() || indName.isEmpty() || indID == 0 || estID == 0 || submissionDate.isEmpty() || reviewDate.isEmpty()) {
                 Toast.makeText(this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            JSONObject jobObj = new JSONObject();
             try {
-                jobObj.put("jobName", jobName);
-                jobObj.put("estName", estName);
-                jobObj.put("status", status);
-                jobObj.put("reviewedBy", reviewedBy);
-                jobObj.put("submissionDate", submissionDate);
-                jobObj.put("reviewDate", reviewDate);
                 JobVacancy input = new JobVacancy(
                         estID,
                         status,
@@ -333,13 +386,13 @@ public class JobVacancyActivity extends AppCompatActivity {
                         null,
                         reviewDate,
                         reviewedBy,
-                        jobName
+                        jobName,
+                        indID,
+                        empTypeName,
+                        null
                 );
-
-//                jobs.add(jobObj);
-//                addJobToLayout(jobObj);
                 saveJobs(input);
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
@@ -391,7 +444,9 @@ public class JobVacancyActivity extends AppCompatActivity {
 
         EditText etJobName = view.findViewById(R.id.et_job_name);
         Spinner spnEst = view.findViewById(R.id.spinner_est);
+        Spinner spnInd = view.findViewById(R.id.spinner_ind);
         Spinner spinnerStatus = view.findViewById(R.id.spinner_status);
+        Spinner spinnerEmpType = view.findViewById(R.id.spinner_empType);
         EditText etReviewedBy = view.findViewById(R.id.et_reviewed_by);
         EditText etSubmissionDate = view.findViewById(R.id.et_submission_date);
         EditText etReviewDate = view.findViewById(R.id.et_review_date);
@@ -400,21 +455,33 @@ public class JobVacancyActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, establishments.stream()
                 .map(Establishment::getEstablishmentName)
                 .collect(Collectors.toList()));
+        ArrayAdapter<String> indAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, industry.stream()
+                .map(Industry::getIndustry_name)
+                .collect(Collectors.toList()));
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, new String[]{"Active", "Closed"});
+        ArrayAdapter<String> empTypeAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, empType);
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         estAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        indAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        empTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStatus.setAdapter(statusAdapter);
         spnEst.setAdapter(estAdapter);
+        spnInd.setAdapter(indAdapter);
+        spinnerEmpType.setAdapter(empTypeAdapter);
 
         try {
             Establishment myEstablishment = findEstablishmentById(establishments, jobObj.getEstablishment_id());
             assert myEstablishment != null;
             spnEst.setSelection(findIndexEst(establishments, jobObj.getEstablishment_id()));
+            spnInd.setSelection(findIndexInd(industry, jobObj.getIndustry_id()));
+            spinnerEmpType.setSelection(findIndexEmp(empType, jobObj.getEmployment_type()));
             etJobName.setText(jobObj.getJob_title());
 //            etReviewedBy.setText(jobObj.getString("reviewedBy"));
-            etSubmissionDate.setText(jobObj.getCreated_date());
-            etReviewDate.setText(jobObj.getReviewed_date());
+            etSubmissionDate.setText(dateStringToFormatString(jobObj.getCreated_date()));
+            etReviewDate.setText(dateStringToFormatString(jobObj.getReviewed_date()));
             String status = jobObj.getStatus();
             spinnerStatus.setSelection(status.equalsIgnoreCase("Active") ? 0 : 1);
             etReviewedBy.setText(jobObj.getReviewed_by());
@@ -430,11 +497,14 @@ public class JobVacancyActivity extends AppCompatActivity {
         builder.setPositiveButton("Save", (dialog, which) -> {
             String jobName = etJobName.getText().toString().trim();
             String estName = spnEst.getSelectedItem().toString().trim();
+            String indName = spnInd.getSelectedItem().toString().trim();
+            String empTypeName = spinnerEmpType.getSelectedItem().toString();
             String status = spinnerStatus.getSelectedItem().toString();
             String reviewedBy = etReviewedBy.getText().toString().trim();
             String submissionDate = etSubmissionDate.getText().toString().trim();
             String reviewDate = etReviewDate.getText().toString().trim();
             int estID = findEstIdByName(establishments, estName);
+            int indID = findIndIdByName(industry, indName);
 
             if (jobName.isEmpty() || estName.isEmpty() || submissionDate.isEmpty() || reviewDate.isEmpty()) {
                 Toast.makeText(this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
@@ -455,7 +525,10 @@ public class JobVacancyActivity extends AppCompatActivity {
                         null,
                         reviewDate,
                         reviewedBy,
-                        jobName
+                        jobName,
+                        indID,
+                        empTypeName,
+                        null
                 );
                 updateJobVacancy(input, jobObj.getVacancy_id());
 
@@ -496,18 +569,51 @@ public class JobVacancyActivity extends AppCompatActivity {
 
     private Establishment findEstablishmentById(List<Establishment> list, Integer id) {
         for (Establishment e : list) {
-            if (e.getEstablishment_id() != null && Objects.equals(e.getEstablishment_id(), id)) {
+            if (Objects.equals(e.getEstablishment_id(), id)) {
                 return e;
             }
         }
         return null; // Not found
     }
 
+    private Industry findIndustryById(List<Industry> list, Integer id) {
+        for (Industry e : list) {
+            if (Objects.equals(e.getIndustry_id(), id)) {
+                return e;
+            }
+        }
+        return null; // Not found
+    }
+
+    private int findIndexEmp(List<String> list, String name){
+        int count = 0;
+        int index = 0;
+        for (String e : list) {
+            if (Objects.equals(e, name)) {
+                index = count;
+            }
+            count++;
+        }
+        return index;
+    }
+
     private int findIndexEst(List<Establishment> list, Integer id){
         int count = 0;
         int index = 0;
         for (Establishment e : list) {
-            if (e.getEstablishment_id() != null && Objects.equals(e.getEstablishment_id(), id)) {
+            if (Objects.equals(e.getEstablishment_id(), id)) {
+                index = count;
+            }
+            count++;
+        }
+        return index;
+    }
+
+    private int findIndexInd(List<Industry> list, Integer id){
+        int count = 0;
+        int index = 0;
+        for (Industry e : list) {
+            if (Objects.equals(e.getIndustry_id(), id)) {
                 index = count;
             }
             count++;
@@ -530,6 +636,22 @@ public class JobVacancyActivity extends AppCompatActivity {
         Log.e("NameTag", "Name: "+ name + "ID: " + estID );
         return estID;
     }
+    private int findIndIdByName(List<Industry> list, String name){
+        int indID = 0;
+        try{
+            for (Industry e : list) {
+                if (e.getIndustry_name() != null && Objects.equals(e.getIndustry_name(), name)) {
+                    indID = e.getIndustry_id();
+                    Log.e("NameTag", "passed Industry "+ indID );
+                }
+            }
+        }catch(Exception e){
+            Log.d("Failed", "Can't Find the Industry  ID");
+        }
+        Log.e("NameTag", "Name: "+ name + " Industry ID: " + indID );
+        return indID;
+    }
+
 
     private String dateStringToFormatString(String input){
         try {
