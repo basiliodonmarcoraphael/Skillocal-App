@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvCreateAccount = findViewById(R.id.tvCreateAccount);
         etEmail.setText("joshuagarcia@gmail.com");
+//        etEmail.setText("test@mail.com");
         etPassword.setText("1234");
 
         btnLogin.setOnClickListener(v -> {

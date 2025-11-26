@@ -2,6 +2,7 @@ package com.example.skillocal_final;
 
 public class JobVacancy {
     private Integer vacancy_id;
+    private Integer user_id;
     private Integer establishment_id;
     private String status;
     private String remarks;
@@ -15,11 +16,12 @@ public class JobVacancy {
 
     public JobVacancy(){} //for retrofit
 
-    public JobVacancy(Integer establishment_id, String status, String remarks,
+    public JobVacancy(Integer user_id, Integer establishment_id, String status, String remarks,
                       String created_date, String reviewed_date, String reviewed_by,
                       String job_title, Integer industry_id, String employment_type,
                       String location)
     {
+        this.user_id = user_id;
         this.establishment_id = establishment_id;
         this.status = status;
         this.remarks = remarks;
@@ -33,7 +35,7 @@ public class JobVacancy {
     }
 
     public Integer getVacancy_id(){return vacancy_id;}
-
+    public Integer getUser_id(){return user_id;}
     public Integer getEstablishment_id(){return establishment_id;}
     public String getStatus(){return status;}
     public String getRemarks(){return remarks;}

@@ -18,6 +18,13 @@ public interface ApiServiceJobVacancy {
             @Query("select") String select
     );
 
+    @GET("JobVacancy")
+    Call<List<JobVacancy>> getAllJobVacancyByUserId(
+            @Query("select") String select,
+            @Query("user_id") String userIdFilter,
+            @Query("order") String order
+    );
+
     @POST("JobVacancy")
     Call<JobVacancy> insertJobVacancy(@Body JobVacancy jobVacancy);
 

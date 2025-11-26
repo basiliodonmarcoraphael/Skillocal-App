@@ -50,6 +50,8 @@ public class JobVacancyActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private String currentUserEmail;
 
+    private Integer currentId;
+
     private static final String PREFS_NAME = "SkillocalPrefs";
     private static final String KEY_JOBS = "jobs_per_user";
 
@@ -59,6 +61,8 @@ public class JobVacancyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        currentId = getSharedPreferences("MyRole", MODE_PRIVATE)
+                .getInt("userId", 0 );
         setContentView(R.layout.activity_job_vacancy);
         empType = new ArrayList<>(
                 List.of("Full-Time", "Part-Time", "Contract", "Internship", "Others")
@@ -101,8 +105,11 @@ public class JobVacancyActivity extends AppCompatActivity {
     }
 
     private void loadJobs() {
-        api.getAllJobVacancy(
-                "*").enqueue(new Callback<List<JobVacancy>>() {
+        api.getAllJobVacancyByUserId(
+                "*",                     // select all columns
+                "eq." + currentId,           // Supabase filter
+                "vacancy_id.asc"     // order by work_experience_id ascending
+        ).enqueue(new Callback<List<JobVacancy>>() {
             @Override
             public void onResponse(@NonNull Call<List<JobVacancy>> call, @NonNull Response<List<JobVacancy>> response) {
                 if (response.isSuccessful()) {
@@ -124,8 +131,13 @@ public class JobVacancyActivity extends AppCompatActivity {
             }
         });
 
-        apiExt.getAllEstablishment(
-                "*").enqueue(new Callback<List<Establishment>>() {
+        apiExt.getEstablishmentByUserId(
+                "*",                   // select all
+                "eq." + currentId,        // user_id = ?
+                "not.eq.Deleted",      // status != "Deleted"
+                "establishment_id.asc"
+
+        ).enqueue(new Callback<List<Establishment>>() {
             @Override
             public void onResponse(@NonNull Call<List<Establishment>> call, @NonNull Response<List<Establishment>> response) {
                 if (response.isSuccessful()) {
@@ -309,7 +321,7 @@ public class JobVacancyActivity extends AppCompatActivity {
                 if (position == 0) {
                     tv.setTextColor(Color.GRAY); // hint color
                 } else {
-                    tv.setTextColor(Color.BLACK);
+                    tv.setTextColor(Color.WHITE);
                 }
 
                 return view;
@@ -336,7 +348,7 @@ public class JobVacancyActivity extends AppCompatActivity {
                 if (position == 0) {
                     tv.setTextColor(Color.GRAY); // hint color
                 } else {
-                    tv.setTextColor(Color.BLACK);
+                    tv.setTextColor(Color.WHITE);
                 }
 
                 return view;
@@ -370,16 +382,17 @@ public class JobVacancyActivity extends AppCompatActivity {
             String reviewedBy = etReviewedBy.getText().toString().trim();
             String submissionDate = etSubmissionDate.getText().toString().trim();
             String reviewDate = etReviewDate.getText().toString().trim();
-            int estID = findEstIdByName(establishments, estName);
-            int indID = findIndIdByName(industry, indName);
+            Integer estID = findEstIdByName(establishments, estName);
+            Integer indID = findIndIdByName(industry, indName);
 
             if (jobName.isEmpty() || estName.isEmpty() || indName.isEmpty() || indID == 0 || estID == 0 || submissionDate.isEmpty() || reviewDate.isEmpty()) {
                 Toast.makeText(this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
-                return;
+//                return;
             }
 
             try {
                 JobVacancy input = new JobVacancy(
+                        currentId,
                         estID,
                         status,
                         "None",
@@ -519,6 +532,7 @@ public class JobVacancyActivity extends AppCompatActivity {
 //                jobObj.put("submissionDate", submissionDate);
 //                jobObj.put("reviewDate", reviewDate);
                 JobVacancy input = new JobVacancy(
+                        currentId,
                         estID,
                         status,
                         "None",

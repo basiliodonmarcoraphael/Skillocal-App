@@ -3,7 +3,7 @@ package com.example.skillocal_final;
 import androidx.annotation.NonNull;
 
 public class Establishment {
-    private int establishment_id;
+    private Integer establishment_id;
     private String establishmentName;
     private String email;
     private String industryType;
@@ -37,7 +37,7 @@ public class Establishment {
         this.createdAt = createdAt;
     }
 
-    public int getEstablishment_id(){return  establishment_id;}
+    public Integer getEstablishment_id(){return  establishment_id;}
     public String getEstablishmentName(){return  establishmentName;}
     public String getEmailInEstablishment(){return email;}
     public String getIndustryType(){return industryType;}

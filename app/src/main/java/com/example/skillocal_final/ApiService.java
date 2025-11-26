@@ -35,13 +35,15 @@ public interface ApiService {
     //This is for Establishment Table
     @GET("Establishment")
     Call<List<Establishment>> getAllEstablishment(
-            @Query("select") String select
+            @Query("select") String select,
+            @Query("order") String order
     );
 
     @GET("Establishment")
     Call<List<Establishment>> getEstablishmentByUserId(
             @Query("select") String select,
             @Query("user_id") String userIdFilter,
+            @Query("status") String statusFilter,
             @Query("order") String order
     );
 
@@ -55,13 +57,23 @@ public interface ApiService {
             @Body Establishment establishment
     );
 
-    @DELETE("Establishment")
-    Call<Void> deleteEstablishment(
-            @Query("establishment_id") String eqFilter // example: "eq.55"
+    @PATCH("Establishment")
+    Call<Establishment> deleteEstablishment(
+            @Query("establishment_id") String eqFilter,  // example: "eq.123"
+            @Body Establishment establishment
     );
+
+//    @DELETE("Establishment")
+//    Call<Void> deleteEstablishment(
+//            @Query("establishment_id") String eqFilter // example: "eq.55"
+//    );
 
     @GET("Industry")
     Call<List<Industry>> getAllIndustry(
             @Query("select") String select
     );
+
+
+
+
 }

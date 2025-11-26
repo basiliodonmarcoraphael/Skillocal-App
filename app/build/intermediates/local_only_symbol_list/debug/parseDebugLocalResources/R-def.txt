@@ -171,6 +171,9 @@ id search_icon_matching_employee
 id sp_status
 id spinnerCivilStatus
 id spinnerSex
+id spinner_empType
+id spinner_est
+id spinner_ind
 id spinner_status
 id textView3
 id textView4

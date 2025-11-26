@@ -119,29 +119,79 @@ public class EstablishmentsActivity extends AppCompatActivity {
         });
     }
 
-    private void deleteEstablishment(Integer id, Context cont, String name){
-        api.deleteEstablishment("eq." + id).enqueue(new Callback<Void>() {
+//    private void deleteEstablishment(Integer id, Context cont, String name){
+//        api.deleteEstablishment("eq." + id).enqueue(new Callback<Void>() {
+//            @Override
+//            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+//                if (response.isSuccessful()) {
+//                    Log.d("API", "User deleted");
+//                } else {
+//                    Log.d("API", "Delete failed: " + response.code());
+//                    Toast.makeText(cont, "This "+name+" is in used. Can't be deleted.", Toast.LENGTH_SHORT).show();
+//                }
+//                loadEstablishments();
+//            }
+//
+//            @Override
+//            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+//                t.fillInStackTrace();
+//                Toast.makeText(cont, "This Establishment is in used. Can't be deleted.", Toast.LENGTH_SHORT).show();
+//                loadEstablishments();
+//            }
+//        });
+//    }
+
+    private void deleteEstablishment(Establishment est, Integer id) {
+        api.updateEstablishment("eq." + id, est).enqueue(new Callback<Establishment>() {
             @Override
-            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+            public void onResponse(@NonNull Call<Establishment> call, @NonNull Response<Establishment> response) {
                 if (response.isSuccessful()) {
-                    Log.d("API", "User deleted");
+                    Establishment created = response.body();
+
+                    // REPLACE THE ASSERTION WITH PROPER NULL CHECK
+                    if (created != null) {
+                        // SUCCESS — the row was inserted
+                        Log.d("API", "Updated: " + created.getEstablishmentName());
+                        loadEstablishments();
+                    } else {
+                        // Handle null response body
+                        Log.e("API", "Update successful but response body is null");
+                        // You might still want to refresh the list if update was successful
+                        loadEstablishments();
+                    }
                 } else {
-                    Log.d("API", "Delete failed: " + response.code());
-                    Toast.makeText(cont, "This "+name+" is in used. Can't be deleted.", Toast.LENGTH_SHORT).show();
+                    // ERROR — the server returned a bad status
+                    Log.e("API", "Update failed: " + response.code());
+                    try {
+                        if (response.errorBody() != null) {
+                            String errorBody = response.errorBody().toString();
+                            Log.e("API", "Error body: " + errorBody);
+                        }
+                    } catch (Exception e) {
+                        Log.e("API", "Error reading error body: " + e.getMessage());
+                    }
                 }
-                loadEstablishments();
             }
 
             @Override
-            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
-                t.fillInStackTrace();
-                Toast.makeText(cont, "This Establishment is in used. Can't be deleted.", Toast.LENGTH_SHORT).show();
-                loadEstablishments();
+            public void onFailure(@NonNull Call<Establishment> call, @NonNull Throwable t) {
+                // NETWORK / RUNTIME ERROR
+                Log.e("API", "Network error: " + t.getMessage());
+                t.fillInStackTrace(); // Better than fillInStackTrace() for logging
             }
         });
     }
 
+
+
+
+
+
+
+
     private void insertEstablishment(Establishment est){
+
+        Log.d("API", "Entry: " + est.getEstablishment_id());
         api.insertEstablishment(est).enqueue(new Callback<Establishment>() {
             @Override
             public void onResponse(@NonNull Call<Establishment> call, @NonNull Response<Establishment> response) {
@@ -177,7 +227,8 @@ public class EstablishmentsActivity extends AppCompatActivity {
 
         api.getEstablishmentByUserId(
                 "*",                     // select all columns
-                "eq." + currentId,           // Supabase filter
+                "eq." + currentId,
+                "not.eq.Deleted",  // Supabase filter
                 "establishment_id.asc"     // order by
         ).enqueue(new Callback<List<Establishment>>() {
             @Override
@@ -189,7 +240,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
 
                     assert resList != null;
                     for (Establishment e : resList) {
-                        Log.d("API", "User: " + e.getAddress());
+//                        Log.d("API", "User: " + e.getAddress());
                         establishments.add(e);
                         addEstablishmentToLayout(e);
                     }
@@ -304,7 +355,7 @@ public class EstablishmentsActivity extends AppCompatActivity {
                         address,
                         status,
                         null,
-                        currentId,
+                        currentId, //userId current account
                         Integer.parseInt(totalEmp),
                         null
                 );
@@ -332,10 +383,36 @@ public class EstablishmentsActivity extends AppCompatActivity {
 
         btnEdit.setOnClickListener(v -> showEditEstablishmentDialog(estObj, tvName));
         btnDelete.setOnClickListener(v -> {
-            deleteEstablishment(estObj.getEstablishment_id(), this, estObj.getEstablishmentName());
-            layoutEstablishments.removeView(itemView);
-            establishments.remove(estObj);
-            saveEstablishments();
+
+            String deletedStatus = "Deleted";
+            Integer idToDelete = estObj.getEstablishment_id();
+            String eName = estObj.getEstablishmentName();
+            String email = estObj.getEmailInEstablishment();
+            String industry = estObj.getIndustryType();
+            String contactP = estObj.getContactPerson();
+            String contactN = estObj.getContactNumber();
+            String address = estObj.getAddress();
+            Integer total_employee = estObj.getTotal_employee();
+
+            Establishment est = new Establishment(
+                    eName,
+                    email,
+                    industry,
+                    contactP,
+                    contactN,
+                    address,
+                    deletedStatus,
+                    null,
+                    currentId,
+                    total_employee,
+                    null
+            );
+
+            deleteEstablishment(est, idToDelete);
+//            layoutEstablishments.removeView(itemView);
+//            establishments.remove(estObj);
+//            saveEstablishments();
+            loadEstablishments();
         });
 
         layoutEstablishments.addView(itemView);
