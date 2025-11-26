@@ -3686,6 +3686,9 @@ id spacer
 id special_effects_controller_view_tag
 id spinnerCivilStatus
 id spinnerSex
+id spinner_empType
+id spinner_est
+id spinner_ind
 id spinner_status
 id spline
 id split_action_bar

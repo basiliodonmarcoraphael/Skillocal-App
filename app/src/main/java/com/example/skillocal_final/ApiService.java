@@ -3,6 +3,7 @@ package com.example.skillocal_final;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
@@ -34,13 +35,15 @@ public interface ApiService {
     //This is for Establishment Table
     @GET("Establishment")
     Call<List<Establishment>> getAllEstablishment(
-            @Query("select") String select
+            @Query("select") String select,
+            @Query("order") String order
     );
 
     @GET("Establishment")
     Call<List<Establishment>> getEstablishmentByUserId(
             @Query("select") String select,
             @Query("user_id") String userIdFilter,
+            @Query("status") String statusFilter,
             @Query("order") String order
     );
 
@@ -53,4 +56,24 @@ public interface ApiService {
             @Query("establishment_id") String eqFilter,  // example: "eq.123"
             @Body Establishment establishment
     );
+
+    @PATCH("Establishment")
+    Call<Establishment> deleteEstablishment(
+            @Query("establishment_id") String eqFilter,  // example: "eq.123"
+            @Body Establishment establishment
+    );
+
+//    @DELETE("Establishment")
+//    Call<Void> deleteEstablishment(
+//            @Query("establishment_id") String eqFilter // example: "eq.55"
+//    );
+
+    @GET("Industry")
+    Call<List<Industry>> getAllIndustry(
+            @Query("select") String select
+    );
+
+
+
+
 }

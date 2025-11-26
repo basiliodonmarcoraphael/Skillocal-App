@@ -1,5 +1,7 @@
 package com.example.skillocal_final;
 
+import androidx.annotation.NonNull;
+
 public class Establishment {
     private Integer establishment_id;
     private String establishmentName;
@@ -20,7 +22,7 @@ public class Establishment {
     public Establishment(String establishmentName, String email,
                          String industryType, String contactPerson, String contactNumber,
                          String address, String status, String modifiedAt,
-                         Integer user_id, Integer total_employee)
+                         Integer user_id, Integer total_employee, String createdAt)
     {
         this.establishmentName = establishmentName;
         this.email = email;
@@ -32,6 +34,7 @@ public class Establishment {
         this.modifiedAt = modifiedAt;
         this.user_id = user_id;
         this.total_employee = total_employee;
+        this.createdAt = createdAt;
     }
 
     public Integer getEstablishment_id(){return  establishment_id;}
@@ -46,4 +49,14 @@ public class Establishment {
     public String getModifiedAt(){return modifiedAt;}
     public Integer getUser_id(){return user_id;}
     public Integer getTotal_employee(){return total_employee;}
+
+    @NonNull
+    @Override
+    public String toString() {
+        return establishmentName; // or getEstablishmentName()
+    }
+
+    public void setEstablishmentName(String input){
+        this.establishmentName = input;
+    }
 }
